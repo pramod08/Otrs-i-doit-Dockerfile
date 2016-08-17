@@ -1,0 +1,27 @@
+.help {
+	font-size:12px;
+	margin:5px;
+	background-color:#eee;
+}
+
+.help a {
+	font-weight:bold;
+}
+
+.help li {
+	margin-bottom:8px;
+}
+
+.help_border {
+	background-color:#fff;
+	margin-top:5px;
+	border:solid 1px #888888;
+}
+
+.help_data {
+	margin:5px;
+}
+
+.help_button {
+	margin-top:5px;
+}

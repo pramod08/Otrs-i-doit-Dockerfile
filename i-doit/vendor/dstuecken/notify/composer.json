@@ -1,0 +1,36 @@
+{
+    "name":         "dstuecken/notify",
+    "version":      "1.0.3",
+    "type":         "library",
+    "description":  "Framework agnostic and lightweight notification system with several adapters.",
+    "keywords":     ["notify", "notification", "flash", "logger", "abstraction"],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "hipchat/hipchat-php": "1.2.*",
+        "psr/log": "~1.0",
+        "swiftmailer/swiftmailer": "~5.0.0",
+        "phpunit/phpunit": "4.0.*",
+        "monolog/monolog": "1.*",
+        "smarty/smarty": "v3.1.*"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "psr/log": "~1.0"
+    },
+    "suggest": {
+        "hipchat/hipchat-php": "Enable HipChat notification",
+        "swiftmailer/swiftmailer": "Enable E-Mail notification"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dstuecken",
+            "email": "dstuecken@i-doit.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "dstuecken\\Notify\\": "src/"
+        }
+    }
+}

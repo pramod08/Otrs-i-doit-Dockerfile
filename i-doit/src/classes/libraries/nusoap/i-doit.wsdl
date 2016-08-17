@@ -1,0 +1,27 @@
+<message name="sessionLoginRequest">
+	<part name="username" type="xsd:string" />
+	<part name="passhash" type="xsd:string" />
+</message>
+
+<message name="sessionLoginResponse">
+	<part name="allowed" type="xsd:boolean" />
+	<part name="sessionID" type="xsd:string" />
+	<part name="sessionGroups" type="xsd:array[]" />
+</message>
+
+<message name="sessionLogoutRequest">
+	<part name="sessionID" type="xsd:string" />
+	<part name="passhash" type="xsd:string" />
+</message>
+
+<portType name="Session">
+	<operation name="login">
+		<!-- Request-response //-->
+		<input message="sessionLoginRequest" />
+		<output message="sessionLoginResponse" />
+	</operation>
+	<operation name="logout">
+		<!-- One-Way //-->
+		<input message="sessionLogoutRequest" />
+	</operation>
+</portType>

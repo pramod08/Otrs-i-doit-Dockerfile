@@ -1,0 +1,8 @@
+*.emerg		/var/www/idoit/syslog/log/emerg.log
+*.alert		/var/www/idoit/syslog/log/alert.log
+*.crit		/var/www/idoit/syslog/log/crit.log
+*.err		/var/www/idoit/syslog/log/error.log
+*.warning	/var/www/idoit/syslog/log/warning.log
+*.notice	/var/www/idoit/syslog/log/notice.log
+*.info		/var/www/idoit/syslog/log/info.log
+*.debug		/var/www/idoit/syslog/log/debug.log

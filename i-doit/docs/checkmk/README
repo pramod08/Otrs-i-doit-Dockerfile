@@ -1,0 +1,99 @@
+i-doit & check-mk
+------------------------------------------------------
+
+This readme describes the automatic file transfer between the i-doit and the Check_MK system.
+The manual is based on a Check_MK installation that was done via OMD. If you have a manual Check_MK installation, you have to adjust the file pathes to fit your needs.
+The automatic file transfer just works between two POSIX (Linux) systems.
+Windows systems can be enabled to support automatic file transfer, but the configuration is more complex
+and depends on various third party applications so that we can not provide a generic description here.
+
+The installation follows these steps:
+
+1. Generation of SSH keypairs and configutration of a passwordless login to the Check_MK system
+2. Configuration of the transfer shellscript checkmk_transfer.sh
+3. Configuration of a crontab to support automatic updates (optional)
+
+
+1. Generation of SSH keypairs and configutration of a passwordless login to the Check_MK system
+
+Generate the keypair:
+
+Log into the i-doit system with a user that has access to the the webserver path (root in this example) and run the command "ssh-keygen -t rsa". This creates a keypair for the SSH connection.
+Do NOT use a password for the keyfile.
+
+root@idoit:~# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+50:02:a5:f6:ad:31:b5:7b:26:16:d5:47:da:59:48:69 root@tu
+The key's randomart image is:
++--[ RSA 2048]----+
+|    .oo .    .oo.|
+|     . o   . +Eo |
+|    o . . . o.+  |
+|   . . + o   .   |
+|      + S        |
+|       + o       |
+|      . + o      |
+|       . +       |
+|                 |
++-----------------+
+
+
+Copy the public keyfile to your clipboard:
+
+root@idoit:~# cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDl+3oSLcabBpD5HAC0CG2VDZdOrgEjiKcopNttKjK7tkRA6TMo57D/EfnSgwgqhHV2I/NxDJFUEHFyyJTnJYjX3k0ezj9s1KlaAm7E3+MPTgGm4drr/WjrLi/A0KLaYJxEIzXl5shP8JlfLUX7PcmqxX7ppmGgFw1KTs9EJjl1LStCFiqzYE4cu9vY5oJKlSCRWN2l/J+cjR5fbSi8Ott4DKsgyClO7h5didUTskXq7u+24dx2M8Ju6aRSedzejriflawRfs5WbdloFisglYZxc7tvAHdu7jjDbHe2QSXJZrI0Tl+GnMo2/p2Uzb8MTmho5yci3AQdY048oIm+59j/ root@idoit
+
+Log into the Check_MK system as root and copy paste the key into the file .ssh/authorized_keys of the OMD site user ("synetics" in our example):
+
+root@checkmk:~# su - synetics
+OMD[synetics]:~$ mkdir .ssh
+OMD[synetics]:~$ vi .ssh/authorized_keys
+
+(Now paste the text and save the file)
+
+Test the passwordless login from the i-doit system side:
+
+root@idoit:~# ssh synetics@checkmk
+Linux checkmk 3.2.0-4-amd64 #1 SMP Debian 3.2.46-1+deb7u1 x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+OMD[synetics]:~$ exit
+logout
+Connection to checkmk closed.
+root@idoit:~#
+
+
+2. Configuration of the transfer shellscript checkmk_transfer.sh
+
+Edit the variables in checkmk_transfer.sh 
+
+idoit_base=/var/www/idoit                       #Webserver base path for i-doit without trailing slash
+idoit_login=admin                               #i-doit login user
+idoit_pass=admin                                #i-doit password
+idoit_structure=3                               #Export i-doit locations to Check_MK? 0=No 1=Physical 2=Logical 3=ObjectType
+checkmk_export_path=checkmk_export              #Check_MK Export path as defined in the i-doit system settings, relative to the idoit_base path
+omd_site=idoit                                  #Name of the target OMD site
+omd_host=1.2.3.4                                #IP-Address or DNS of the Check_MK host
+
+
+3. Configuration of a crontab to support automatic updates (optional)
+
+Add the following lines to the file /etc/crontab :
+
+0 * * * * root /var/www/idoit/checkmk_transfer.sh
+
+This checks hourly for changes in the Check_MK configuration within i-doit. If there are changes, they are being automatically transferred to the Check_MK system.
+If you want to forcefully transfer the files every time, you can add the parameter --force.
+
+0 * * * * root /var/www/idoit/checkmk_transfer.sh --force

@@ -1,0 +1,77 @@
+---------------------------------------------------------------
+crons.exe Readme, Copyright http://www.kalab.com
+
+Taken from http://www.kalab.com/freeware/cron/cron.htm
+---------------------------------------------------------------
+
+Cron scans the file CRONTAB every minute and checks every line if the specified time/date 
+information matches the current time/date. If they are equal, the command line specified will be 
+executed. A log file (cron.log) with the executed commands is written to the current directory.
+
+Download
+
+There are two versions of Cron:
+
+Version:	Download link:
+Cron for Windows 9x/NT	http://www.kalab.com/freeware/cron/cron.zip (22kb)
+Cron NT service	http://www.kalab.com/freeware/cron/crons.zip (53kb)
+Setup for first version (Windows 9x/NT)
+
+copy the files cron.exe and crontab to a folder of your choice
+edit the file crontab (see the examples as a reference)
+create a link to cron.exe and move it to the startup folder
+Setup for NT service
+
+create a crontab file in your SYSTEM32 folder
+execute the included ntsetup.exe
+call "crons.exe /?" in a command line to see the available options of crons
+The Crontab file
+
+Each line of CRONTAB has the following structure:
+
+<Minute> <Hour> <Day> <Month> <Day of Week> <Command line>
+
+Position:	Values:
+Minute	0-59
+Hour	0-23
+Day	1-31
+Month	1-12
+Day of week	0-6 (0=Sunday, 1=Monday, ..., 6=Saturday)
+Instead of minute, hour, day, month or day of week it's also possible to specify a *. A * represents all possible values for that position (e.g. a * on 2nd position is the same as specifying all the possible values for hour)
+
+It's also possible to specify several values separated by commas: e.g. if you want a command to be executed every 10th minute so you can specify 0,10,20,30,40,50 for minute. A range of values can be specified with a -: e.g. value 0-12 for hour -> every hour a.m.
+
+Comments
+
+Every line not starting with a number is treated as a comment.
+
+Examples
+
+execute a command every minute
+
+  # This is a comment.
+  * * * * * c:\tools\CheckForNewFiles.exe
+  execute the program backup.bat every hour
+
+  # This is a comment.
+  0 * * * * c:\tests\backup.bat
+  do a backup every day at 0.30 p.m.
+
+  # This is a comment.
+  30 12 * * * c:\tests\backup.bat
+  start a backup every tuesday at midnight
+
+  # This is a comment.
+  0 0 * * 3 c:\tests\backup.bat
+  scan drive c for viruses on the 1st of every month at 2.45 p.m.
+
+  # scan for known viruses
+  45 14 1 * * c:\path_to_scanner\scan c:
+  copy some files every half hour
+
+  # This is a comment.
+  0,30 * * * * xcopy c:\docs\*.* y:\users /s
+  copy a file every hour (a.m.) only on weekdays
+
+  # System commands need the command interpreter specified:
+  0 0-12 * * 1-5 c:\...\cmd.exe /c "copy c:\... e:\"

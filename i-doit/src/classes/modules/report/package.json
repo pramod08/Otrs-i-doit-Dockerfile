@@ -1,0 +1,17 @@
+{
+	"title": "Reports",
+	"name": "LC__UNIVERSAL__REPORTS",
+	"identifier": "reports",
+	"author": "Synetics GmbH",
+	"version": "1.0",
+	"description": "Report module for i-doit.",
+	"type": "core",
+	"files": [],
+	"sql-tables": [],
+	"requirements": {
+		"core": ">= 1.2"
+	},
+	"dependencies": {
+		"php": ["curl"]
+	}
+}

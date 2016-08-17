@@ -1,0 +1,83 @@
+/* Horizontal Carousel */
+.horizontal_carousel {
+	position: relative;
+	width: 770px;
+	height: 100px;
+	margin-bottom: 10px;
+}
+
+.horizontal_carousel .container {
+	position: absolute;
+	top: 5px;
+	left: 35px;
+	width: 700px;
+	height: 100px;
+	overflow: hidden;
+	background: #999;
+}
+
+.horizontal_carousel .previous_button {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	width: 25px;
+	height: 100px;
+	background: url([{$dir_images}]carousel/left.png);
+	z-index: 100;
+	cursor: pointer;
+}
+
+.horizontal_carousel .previous_button_disabled {
+	opacity: 0.4;
+	cursor: default;
+}
+
+.horizontal_carousel .next_button {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	width: 25px;
+	height: 100px;
+	background: url([{$dir_images}]carousel/right.png);
+	z-index: 100;
+	cursor: pointer;
+}
+
+.horizontal_carousel .next_button_disabled {
+	opacity: 0.4;
+	cursor: default;
+}
+
+.horizontal_carousel ul {
+	margin: 0;
+	padding: 10px;
+	width: 100000px;
+	position: relative;
+	top: 0;
+	left: 0;
+	height: 144px;
+}
+
+.horizontal_carousel ul li img.object {
+	border: 1px solid #ccc;
+	-moz-box-shadow: 2px 2px 4px #222;
+	-webkit-box-shadow: 2px 2px 4px #222;
+}
+
+.horizontal_carousel ul li {
+	margin: 0;
+	list-style: none;
+	float: left;
+	text-align: center;
+}
+
+.horizontal_carousel ul li a.add {
+	color: #fff;
+	padding: 3px 5px 3px 5px;
+	border: 1px solid #ddd;
+	background: #666;
+}
+
+.horizontal_carousel ul li span {
+	color: #fff;
+}

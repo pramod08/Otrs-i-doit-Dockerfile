@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="isys">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="info" minOccurs="0"/>
+                <xs:element ref="queries"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="info">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="title"/>
+                <xs:element ref="version"/>
+                <xs:element ref="requirement"/>
+                <xs:element ref="directory"/>
+                <xs:element ref="revision"/>
+                <xs:element ref="release"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="requirement">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="revision"/>
+                <xs:element ref="version"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="directory" type="xs:NCName"/>
+    <xs:element name="release" type="xs:NMTOKEN"/>
+    <xs:element name="queries">
+        <xs:complexType>
+            <xs:sequence minOccurs="0">
+                <xs:element maxOccurs="unbounded" ref="query"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="query">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="id"/>
+                <xs:element minOccurs="0" ref="title"/>
+                <xs:element ref="check"/>
+                <xs:element minOccurs="0" ref="errmsg"/>
+                <xs:element ref="sql"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="id" type="xs:string"/>
+    <xs:element name="check">
+        <xs:complexType mixed="true">
+            <xs:attribute name="ident" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="errmsg" type="xs:string"/>
+    <xs:element name="sql">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="exec"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="exec">
+        <xs:complexType mixed="true">
+            <xs:attribute name="ident" use="required" type="xs:boolean"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="title" type="xs:string"/>
+    <xs:element name="version" type="xs:NMTOKEN"/>
+    <xs:element name="revision" type="xs:integer"/>
+</xs:schema>

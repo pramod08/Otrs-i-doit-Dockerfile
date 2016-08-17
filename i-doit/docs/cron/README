@@ -1,0 +1,46 @@
+i-doit & crontab
+------------------------------------------------------
+Date:   13.02.2008
+Author: dennis stuecken <dstuecken@i-doit.dorg>
+------------------------------------------------------
+
+You need to configure the crontab handlers first:
+
+Check the config examples inside ./src/handler/config/examples/
+and copy them into the config directory: ./src/handler/config/
+
+ >> cp ./src/handler/config/examples/isys_handler_notifications.inc.php ./src/handler/config/isys_handler_notifications.inc.php
+ >> cp ./src/handler/config/examples/isys_handler_workflow.inc.php ./src/handler/config/isys_handler_workflow.inc.php
+ >> ..
+ 
+You can get the mandator id with 
+ Linux:
+ >> chmod +x /i-doit/mandator
+ >> /i-doit/mandator ls
+ Windows
+ >> C:/Programme/PHP5/php.exe C:/Programme/Apache2.2/htdocs/i-doit/controller.php -v -m mandator ls
+
+or with the following SQL statement: 
+ "SELECT * FROM isys_mandator;"
+on your system-database.
+
+The i-doit user and password should be valid in
+order to connect to the mandator database.
+
+------------------------------------------------------
+
+After configuring you can use one of the
+crontab examples for your OS of the ./cron directory.
+
+For Windows installations you can use the included 
+crons.exe which can be installed as a system-service
+with 
+ >> crons.exe /install
+
+Because the cron service searches for a valid
+crontab file in c:\Windows\System32 you need to copy the 
+crontab.windows to C:\Windows\System32\crontab
+
+On Linux machines you need to copy it to
+/etc/cron.d/ or manually edit your crontab with
+ >> crontab -e

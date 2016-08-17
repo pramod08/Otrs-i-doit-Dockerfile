@@ -1,0 +1,89 @@
+div.datepicker {
+	position: absolute;
+	text-align: center;
+	border: 1px #AAAAAA solid;
+	background: #FFFFFF;
+	padding: 0;
+}
+
+div.datepicker table {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 9px;
+}
+
+div.datepicker table thead tr th {
+	/* The rest will be done by the ".btn" class */
+	display: table-cell;
+}
+
+div.datepicker table tbody tr {
+	border: 1px white solid;
+	margin: 0;
+	padding: 0;
+}
+
+div.datepicker table tbody tr td {
+	border: 1px #EEEEEE solid;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	width: 35px;
+	line-height: 15px;
+	cursor: pointer;
+}
+
+div.datepicker table tbody tr td:hover,
+div.datepicker table tbody tr td.today:hover {
+	border: 1px #AAAAAA solid;
+	background: #FBFBFB;
+}
+
+div.datepicker table tbody tr td.wday {
+	border: 1px #FFFFFF solid;
+	cursor: default;
+}
+
+div.datepicker table tbody tr td.outbound {
+	background: #EEEEEE;
+}
+
+div.datepicker table tbody tr td.outbound:hover {
+	border: 1px #AAAAAA solid;
+}
+
+div.datepicker table tbody tr td.today {
+	border: 1px #CC0000 solid;
+	background: #FFF8F8;
+	color: #CC0000;
+}
+
+div.datepicker table tbody tr td.nclick,
+div.datepicker table tbody tr td.nclick_outbound {
+	cursor: default;
+	color: #AAAAAA;
+}
+
+div.datepicker table tbody tr td.nclick_outbound {
+	background: #EEEEEE;
+}
+
+div.datepicker table tbody tr td.nclick:hover,
+div.datepicker table tbody tr td.nclick_outbound:hover {
+	border: 1px #EEEEEE solid;
+	background: #FFFFFF;
+}
+
+div.datepicker table tbody tr td.nclick_outbound:hover {
+	background: #EEEEEE;
+}
+
+div.datepicker table tfoot {
+	padding: 0;
+}
+
+div.datepicker table tfoot td {
+	/* The rest will be done by the ".btn" class */
+	display: table-cell;
+}

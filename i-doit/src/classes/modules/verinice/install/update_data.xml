@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE isys [
+	<!ELEMENT isys (info|queries)*>
+	<!ELEMENT info (title|version|requirement|directory|revision|release)*>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT version (#PCDATA)>
+	<!ELEMENT requirement (revision|version)*>
+	<!ELEMENT revision (#PCDATA)>
+	<!ELEMENT directory (#PCDATA)>
+	<!ELEMENT release (#PCDATA)>
+	<!ELEMENT queries (query)*>
+	<!ELEMENT query (id|title|check|errmsg|sql)*>
+	<!ELEMENT id (#PCDATA)>
+	<!ELEMENT check (#PCDATA)>
+	<!ATTLIST check ident CDATA #REQUIRED>
+	<!ELEMENT errmsg (#PCDATA)>
+	<!ELEMENT sql (exec)*>
+	<!ELEMENT exec (#PCDATA)>
+	<!ATTLIST exec ident CDATA #REQUIRED>
+	]>
+<isys>
+	<info>
+		<title>Verinice</title>
+		<version>1.5</version>
+		<release>2015-03-09</release>
+	</info>
+	<queries>
+		<query>
+			<id>1</id>
+			<title>Creating table "isys_verinice_types"</title>
+			<check ident="C_CREATE_TABLE">isys_verinice_types</check>
+			<sql>
+				<exec ident="false">
+                    CREATE TABLE `isys_verinice_types` (
+                      `isys_verinice_types__id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+                      `isys_verinice_types__title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+                      `isys_verinice_types__description` text COLLATE utf8_unicode_ci,
+                      `isys_verinice_types__sort` int(10) unsigned DEFAULT '5',
+                      `isys_verinice_types__const` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+                      `isys_verinice_types__status` int(10) unsigned DEFAULT '1',
+                      `isys_verinice_types__property` int(10) unsigned DEFAULT '0',
+                      PRIMARY KEY (`isys_verinice_types__id`)
+                    ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+                    INSERT INTO `isys_verinice_types` VALUES (1,'LC__CMDB__CATG__APPLICATION_OBJ_APPLICATION',NULL,5,'anwendung',1,0),(2,'LC__CMDB__OBJTYPE__CLIENT',NULL,5,'client',1,0),(3,'LC__CMDB__OBJTYPE__SERVER',NULL,5,'server',1,0),(4,'LC__CMDB__OBJTYPE__ROOM',NULL,5,'raum',1,0),(5,'TK-Komponente',NULL,5,'tkkomponente',1,0),(6,'Netz-Komponente',NULL,5,'netzkomponente',1,0),(7,'Sonstige IT',NULL,5,'sonstit',1,0),(8,'Person',NULL,5,'person',1,0);
+				</exec>
+			</sql>
+		</query>
+	</queries>
+</isys>

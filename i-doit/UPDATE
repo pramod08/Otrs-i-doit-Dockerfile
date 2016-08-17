@@ -1,0 +1,63 @@
+UPDATE
+
+i-doit update procedure:
+----------------------------------------------------------------------------
+0. You should always create a BACKUP of your data and system databases,
+   you never know what could happen!
+
+    - To create a database backup under unix systems, try:
+
+    	mysqldump -uroot -p idoit_data > idoit_data.sql
+    	mysqldump -uroot -p idoit_system > idoit_system.sql
+
+      Where idoit_data is your client and idoit_system your system
+      database. For Windows backups you can use mysqldump.exe in mysql's
+      bin directory with same syntax.
+
+    Note: If you've changed some constants in src/constants.inc.php or
+    	  edited some of the other source files you have to backup and
+    	  re-insert these changes after the update, because everything
+    	  is gonna be overwritten.
+
+----------------------------------------------------------------------------
+
+1. Extract the update package into your i-doit directory. Normally this
+   should create a new directory 'updates' and overwrite some of the
+   existing files.
+
+2. This step is for Unix users only:
+   Because the automatic i-doit updater copies all relevant files over the
+   existing ones, the Apache user needs write access to the complete i-doit
+   directory. To accomplish this, you can use the script idoit-rights.sh in
+   the i-doit directory. The script uses the Debian default user "www-data".
+   If you are using another distribution you should edit the script and
+   modify he user/group variables to you needs.
+
+   If everything seems to be fine, do "./idoit-rights.sh set" to set the
+   corresponding rights. "./idoit-rights.sh unset" to reset them after
+   the update.
+
+   Alternatively you can use "chown -R www-data:www-data /var/www/idoit",
+   of course.
+
+3. Ok, now it's time to go to "http://<your i-doit URL>/updates" to browse
+   to the updater.
+
+4. Choose to which version you want to update. The bold one, should be your
+   current one. All displayed versions below are the new ones.
+
+5. After clicking you need to select the databases you want to update.
+
+6. Finally you can choose whether you want to update your files or leave
+   them untouched. We recommend that you also update your files.
+
+7. After clicking next again, the update procedure should start. Debug logs
+   are available in your temp directory after the update is done.
+
+----------------------------------------------------------------------------
+
+If you've got any problems, errors or suggestions, contact us in our
+community forum. Support customers can open a support call at http://login.i-doit.com.
+
+Forum:          http://www.i-doit.org/forum
+Knowledge Base: https://kb.i-doit.com

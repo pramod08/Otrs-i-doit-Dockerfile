@@ -1,0 +1,21 @@
+<Files ~ (.*?\.php)>
+	<IfModule mod_access.c>
+	    Order Deny,Allow
+		Deny from all
+	</IfModule>
+	<IfModule mod_access_compat.c>
+		Order Deny,Allow
+		Deny from all
+	</IfModule>
+</Files>
+
+<Files ~ (rt\.php|barcode\.php|qr\.php|qr_img\.php|js\.php|jsonrpc\.php)>
+	<IfModule mod_access.c>
+		Allow from all
+	</IfModule>
+	<IfModule mod_access_compat.c>
+		Allow from all
+	</IfModule>
+</Files>
+
+Options -Indexes +FollowSymlinks

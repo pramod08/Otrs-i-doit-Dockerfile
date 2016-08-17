@@ -1,0 +1,54 @@
+<IfModule mod_php5.c>
+	php_flag	display_errors	On
+	php_flag	log_errors	On
+	php_value	error_log	log/errors
+
+	#php_value	upload_max_filesize	64M
+	php_value	file_uploads	    1
+	#php_value	post_max_size		64M
+	#php_value	memory_limit		256M
+
+	#php_flag	zlib.output_compression		Off
+	php_flag	magic_quotes_gpc		Off
+	php_flag	magic_quotes_runtime		Off
+	php_flag	zend.ze1_compatibility_mode	Off
+	php_flag 	suhosin.session.encrypt 	Off
+
+	php_value	session.auto_start	0
+	php_value	session.gc_maxlifetime	21600
+	php_value	session.gc_divisor	500
+	php_value	session.gc_probability	1
+</IfModule>
+
+# Turn on Expires and set default to one week
+<IfModule mod_expires.c>
+	ExpiresActive On
+	# Set up caching on media files for 1 year
+	<FilesMatch "\.(ico|png|gif|css)$">
+		ExpiresDefault A29030400
+
+		<IfModule mod_headers.c>
+			Header append Cache-Control "public"
+		</IfModule>
+	</FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# security rules
+	RewriteRule .svn/ - [F]
+	RewriteRule ^controller$ - [F]
+	RewriteRule ^(INSTALL|UPDATE|checkmk_transfer.sh|idoit-rights.sh|import|mandator|updatecheck)$ - [F]
+
+	# favicon rewrite
+    RewriteRule favicon\.ico$ images/favicon.ico [L]
+
+    # base rewriting
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule .* index.php [L,QSA]
+</IfModule>
+
+Options -Indexes +FollowSymlinks

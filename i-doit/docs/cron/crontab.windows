@@ -1,0 +1,10 @@
+# i-doit Crontab template
+# -----------------------
+# Please check your paths and correct them, if needed
+
+0 3 * * * c:\Programme\PHP\php.exe c:\Programme\Apache2\htdocs\i-doit\controller.php -v -m workflow >> c:\Programme\Apache2\htdocs\i-doit\cronlog
+0,10,20,30,40,50 * * * * c:\programme\PHP\php.exe c:\programme\Apache2\htdocs\i-doit\controller.php -v -m nagios  >> c:\Programme\Apache2\htdocs\i-doit\cronlog
+5,15,25,35,45,55 * * * * c:\programme\PHP\php.exe c:\programme\Apache2\htdocs\i-doit\controller.php -v -m syslog  >> c:\Programme\Apache2\htdocs\i-doit\cronlog
+2 1 * * * c:\Programme\PHP\php.exe c:\Programme\Apache2\htdocs\i-doit\controller.php -v -m archivelog >> c:\Programme\Apache2\htdocs\i-doit\cronlog
+2 0 * * * c:\Programme\PHP\php.exe c:\Programme\Apache2\htdocs\i-doit\controller.php -v -m updatecheck >> c:\Programme\Apache2\htdocs\i-doit\cronlog
+3 0 * * * c:\Programme\PHP\php.exe c:\Programme\Apache2\htdocs\i-doit\controller.php -v -m notifications >> c:\Programme\Apache2\htdocs\i-doit\cronlog

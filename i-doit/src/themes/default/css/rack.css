@@ -1,0 +1,306 @@
+#rackview table {
+    width: 100%;
+}
+
+#rack_front, #rack_rear, .rack {
+    display: inline-block;
+    border: 1px solid #B7B7B7;
+    border-top: none;
+    width: 400px;
+    padding: 10px 0;
+    background: #EEEEEE;
+}
+
+tr.row {
+    height: 24px;
+}
+
+div.slot, td.slot {
+    width: 90%;
+    background: #ddd;
+	background-image: url('[{$dir_images}]pattern1.png');
+	background-repeat: repeat;
+	cursor: default;
+
+    border: 1px solid #B7B7B7;
+    font-size: 11px;
+    position: relative;
+}
+
+/* This should only apply to the "room"-view */
+table.room-view tr.odd td.slot {
+    background-position: 10px 0;
+}
+
+td.slot div span {
+	width: 175px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+}
+
+.room-view td.slot div span {
+    width: 135px;
+}
+
+.slot.last {
+    margin-bottom: 0;
+}
+
+td.last.slot {
+    border: 1px solid #B7B7B7;
+	border-bottom-width: 5px;
+}
+
+.left-slots, .right-slots {
+    width: 53px;
+    position: relative;
+}
+
+.left-slots .slot, .right-slots .slot {
+    display: inline-block;
+    height: 220px;
+    width: 20px;
+    margin: 2px;
+}
+
+.main-slots td {
+    color: #000;
+	text-shadow: 1px 1px #fff;
+    font-size: 10px;
+    vertical-align: middle;
+}
+
+td.slot {
+    border-bottom: none;
+    vertical-align: top;
+}
+
+td.slot div {
+    overflow: hidden;
+}
+
+td.slot div img {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
+
+td.slot div span {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 2px
+}
+
+.clear {
+    clear: both;
+}
+
+#side_box {
+    position: relative;
+}
+
+#side_box .box {
+	width: 255px;
+}
+
+.box .navbar_item {
+    display: inline-block;
+    float: left;
+}
+
+#unassigned_objects.box span.he-edit,
+#unassigned_objects.box span.location-remove {
+    float: right;
+    cursor: pointer;
+    padding: 0;
+    margin-right: 4px;
+}
+
+#unassigned_objects .list span {
+    padding: 5px;
+}
+
+#unassigned_objects .list span.unassigned_object {
+    width: 200px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#unassigned_objects .list div {
+    border-bottom: 1px solid #B7B7B7;
+    position: relative;
+    display: block;
+}
+
+#unassigned_objects .list span b {
+    display: inline-block;
+    width: 35px;
+}
+
+#unassigned_objects .list span.active {
+    background: transparent url('[{$dir_images}]gradient_x.png') repeat-y left top;
+    color: #cc0000;
+}
+
+#unassigned_objects .list span img {
+    position: relative;
+    top: 4px;
+}
+
+#assign_object input {
+    margin-bottom: 0;
+}
+
+img.object_option {
+    float: right;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+#unassigned_objects div.list {
+    overflow-x: visible;
+    overflow-y: auto;
+    height: 170px;
+    display: block;
+    position: relative;
+}
+
+.row.selected .slot,
+.left-slots .slot.selected,
+.right-slots .slot.selected {
+    background-image: url('[{$dir_images}]pattern2.png');
+}
+
+a#new {
+    display: block;
+    padding: 3px;
+    margin: 5px;
+}
+
+a#new img {
+    position: relative;
+    top: 3px;
+}
+
+#rack_stats {
+    width: 100%;
+}
+
+#rack_stats table {
+    width: 475px;
+}
+
+#rack_stats div.bar {
+    height: 3px;
+    width: 100%;
+    background: #888;
+    position: relative;
+}
+
+#rack_stats div.bar div {
+    position: absolute;
+    height:3px;
+}
+
+.rotated {
+    bottom: 100px;
+    right: -100px;
+    width: 220px;
+    height: 20px;
+    /*overflow: hidden;*/
+    position: absolute;
+    writing-mode: lr-tb;
+
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.rotated img {
+    margin: 1px 5px 0 1px;
+    width: 16px;
+    height: 16px;
+}
+
+.rotated img.object_option {
+    margin-top: 2px;
+}
+
+.rotated span {
+    width: 150px;
+    height: 15px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+/* IE8 hacks */
+@media \0screen {
+    .rotated img {
+        margin-bottom: 5px;
+    }
+
+    .rotated img.object-icon {
+        position: relative;
+        margin-bottom: 5px;
+        left: 0;
+        top: -15px;
+    }
+
+    .rotated img.object-options {
+        position: relative;
+        left: -46px;
+        bottom: -2px;
+    }
+
+    span.rotated {
+        height: 190px;
+        width: 15px;
+    }
+
+    .rotated span {
+        position: relative;
+        width: 25px;
+        height: 190px;
+        left: -20px;
+        top: 15px;
+    }
+
+    .rotated {
+        width: 25px;
+        height: 200px;
+        writing-mode: tb-lr;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+/* IE7 hacks */
+*+html .rotated {
+    width: 25px;
+    height: 200px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+*+html td.slot .object-options {
+    position: absolute;
+    float: none;
+    top: 0;
+    right: 0;
+}
+
+*+html .rack-container {
+    width: 310px;
+    float: left;
+    position: relative;
+}
+
+*+html #unassigned_objects .list div {
+    height: 25px;
+}

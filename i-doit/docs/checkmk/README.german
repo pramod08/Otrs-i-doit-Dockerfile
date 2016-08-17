@@ -1,0 +1,100 @@
+i-doit & check-mk
+------------------------------------------------------
+
+Im folgenden wird der automatische Austausch der Konfiguration zwischen dem i-doit System und einer Check_MK Instanz dokumentiert.
+Die Anleitung basiert auf einer Check_Mk Installation, die per OMD installiert wurde. Haben Sie eine manuelle Check_Mk Installation, müssen ggf. die Pfade in der Anleitung angepasst werden.
+Der automatische Austausch funktioniert wie hier beschrieben nur zwischen zwei POSIX (Linux) Systemen, nicht unter Windows.
+Für Windows Systeme lässt sich ebenfalls ein automatische Datenaustausch realisieren, jedoch ist hier ein höherer Konfigurationsaufwand
+unter Einbeziehung mehrerer externer Tools notwendig, so daß eine generelle Beschreibung an dieser Stelle nicht möglich ist.
+
+
+Der Aufbau erfolgt in folgenden Schritten:
+
+1. Erzeugung eines Schlüsselpaars und Konfiguration einer passwortlosen Anmeldung am Check-MK System
+2. Konfiguration der Transfer Batchdatei checkmk_transfer.sh
+3. Erstellung von Crontab Einträgen zur Übertragung der Konfiguration (Optional)
+
+
+1. Erzeugung eines Schlüsselpaars und Konfiguration einer passwortlosen Anmeldung am Check-MK System
+
+Anlegen eines Schlüsselpaars zwischen dem i-doit und dem Check-MK System:
+
+Loggen Sie sich als Benutzer mit Zugriffsberechtigung auf den Webserverpfad ein und führen Sie den Befehl "ssh-keygen -t rsa" aus, um ein SSH Schlüsselpaar zu erzeugen.
+Geben sie KEIN Passwort ein.
+
+root@idoit:~# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+50:02:a5:f6:ad:31:b5:7b:26:16:d5:47:da:59:48:69 root@tu
+The key's randomart image is:
++--[ RSA 2048]----+
+|    .oo .    .oo.|
+|     . o   . +Eo |
+|    o . . . o.+  |
+|   . . + o   .   |
+|      + S        |
+|       + o       |
+|      . + o      |
+|       . +       |
+|                 |
++-----------------+
+
+
+Kopieren Sie das erzeugte Public Keyfile in die Zwischenablage:
+
+root@idoit:~# cat .ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDl+3oSLcabBpD5HAC0CG2VDZdOrgEjiKcopNttKjK7tkRA6TMo57D/EfnSgwgqhHV2I/NxDJFUEHFyyJTnJYjX3k0ezj9s1KlaAm7E3+MPTgGm4drr/WjrLi/A0KLaYJxEIzXl5shP8JlfLUX7PcmqxX7ppmGgFw1KTs9EJjl1LStCFiqzYE4cu9vY5oJKlSCRWN2l/J+cjR5fbSi8Ott4DKsgyClO7h5didUTskXq7u+24dx2M8Ju6aRSedzejriflawRfs5WbdloFisglYZxc7tvAHdu7jjDbHe2QSXJZrI0Tl+GnMo2/p2Uzb8MTmho5yci3AQdY048oIm+59j/ root@idoit
+
+Loggen Sie sich in das Check_MK System als root ein und Kopieren Sie den Inhalt in die Datei .ssh/authorized_keys der OMD Site (In diesem Falle "synetics"):
+
+root@checkmk:~# su - synetics
+OMD[synetics]:~$ mkdir .ssh
+OMD[synetics]:~$ vi .ssh/authorized_keys
+
+(Nun kopierten Text einfügen und abspeichern).
+
+Testen Sie anschließend vom i-doit System aus exemplarisch den SSH Login ohne Passwort:
+
+root@idoit:~# ssh synetics@checkmk
+Linux checkmk 3.2.0-4-amd64 #1 SMP Debian 3.2.46-1+deb7u1 x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+OMD[synetics]:~$ exit
+logout
+Connection to checkmk closed.
+root@idoit:~#
+
+
+2. Konfiguration der Transfer Batchdatei checkmk_transfer.sh
+
+Editieren Sie nun die Datei checkmk_transfer.sh, indem Sie die Variablen anpassen.
+
+idoit_base=/var/www/idoit                       #Webserver base path for i-doit without trailing slash
+idoit_login=admin                               #i-doit login user
+idoit_pass=admin                                #i-doit password
+idoit_structure=3                               #Export i-doit locations to Check_MK? 0=No 1=Physical 2=Logical 3=ObjectType
+checkmk_export_path=checkmk_export              #Check_MK Export path as defined in the i-doit system settings, relative to the idoit_base path
+omd_site=idoit                                  #Name of the target OMD site
+omd_host=1.2.3.4                                #IP-Address or DNS of the Check_MK host
+
+
+3. Erstellung von Crontab Einträgen zur Übertragung der Konfiguration (Optional)
+
+Fügen Sie in die Datei /etc/crontab folgende Zeilen an:
+
+0 * * * * root /var/www/idoit/checkmk_transfer.sh
+
+So wird stündlich überprüft, ob sich etwas an der Check_MK Konfiguration geändert hat. Sind Änderungen vorhanden, wird die aktualisierte Konfiguration übertragen.
+Möchten Sie die Übertragung forcieren, können Sie den Parameter --force an die Kommandozeile ergänzen, so wird jedesmal eine Aktualisierung der Dateien geschickt:
+
+0 * * * * root /var/www/idoit/checkmk_transfer.sh --force

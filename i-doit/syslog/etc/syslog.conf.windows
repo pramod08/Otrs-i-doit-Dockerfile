@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<conf>
+	<source name="src_udp" type="udp"/>
+
+	<destination name="emerg" file="emerg.log"/>
+	<destination name="alert" file="alert.log"/>
+	<destination name="crit" file="crit.log"/>
+	<destination name="error" file="error.log"/>
+	<destination name="warning" file="warning.log"/>
+	<destination name="notice" file="notice.log"/>
+	<destination name="info" file="info.log"/>
+	<destination name="debug" file="debug.log"/>
+
+	<filter name="emerg">
+		<facility name="kern"/>
+		<facility name="user"/>
+		<facility name="mail"/>
+		<facility name="daemon"/>
+		<facility name="auth"/>
+		<facility name="syslog"/>
+		<facility name="lpr"/>
+		<facility name="news"/>
+		<facility name="uucp"/>
+		<facility name="cron"/>
+		<facility name="authpriv"/>
+		<facility name="ftp"/>
+		<facility name="local0"/>
+		<facility name="local1"/>
+		<facility name="local2"/>
+		<facility name="local3"/>
+		<facility name="local4"/>
+		<facility name="local5"/>
+		<facility name="local6"/>
+		<facility name="local7"/>
+		
+		<priority name="emerg"/>
+	</filter>
+	
+	<filter name="alert">
+		<facility name="kern"/>
+		<facility name="user"/>
+		<facility name="mail"/>
+		<facility name="daemon"/>
+		<facility name="auth"/>
+		<facility name="syslog"/>
+		<facility name="lpr"/>
+		<facility name="news"/>
+		<facility name="uucp"/>
+		<facility name="cron"/>
+		<facility name="authpriv"/>
+		<facility name="ftp"/>
+		<facility name="local0"/>
+		<facility name="local1"/>
+		<facility name="local2"/>
+		<facility name="local3"/>
+		<facility name="local4"/>
+		<facility name="local5"/>
+		<facility name="local6"/>
+		<facility name="local7"/>
+
+		<priority name="alert"/>
+	</filter>
+	
+	<filter name="crit">
+		<facility name="kern"/>
+		<facility name="user"/>
+		<facility name="mail"/>
+		<facility name="daemon"/>
+		<facility name="auth"/>
+		<facility name="syslog"/>
+		<facility name="lpr"/>
+		<facility name="news"/>
+		<facility name="uucp"/>
+		<facility name="cron"/>
+		<facility name="authpriv"/>
+		<facility name="ftp"/>
+		<facility name="local0"/>
+		<facility name="local1"/>
+		<facility name="local2"/>
+		<facility name="local3"/>
+		<facility name="local4"/>
+		<facility name="local5"/>
+		<facility name="local6"/>
+		<facility name="local7"/>
+		
+		<priority name="crit"/>
+	</filter>
+	
+	<filter name="error">
+		<facility name="kern"/>
+		<facility name="user"/>
+		<facility name="mail"/>
+		<facility name="daemon"/>
+		<facility name="auth"/>
+		<facility name="syslog"/>
+		<facility name="lpr"/>
+		<facility name="news"/>
+		<facility name="uucp"/>
+		<facility name="cron"/>
+		<facility name="authpriv"/>
+		<facility name="ftp"/>
+		<facility name="local0"/>
+		<facility name="local1"/>
+		<facility name="local2"/>
+		<facility name="local3"/>
+		<facility name="local4"/>
+		<facility name="local5"/>
+		<facility name="local6"/>
+		<facility name="local7"/>
+
+		<priority name="error"/>
+	</filter>
+	
+	<filter name="warning">
+		<facility name="kern"/>
+		<facility name="user"/>
+		<facility name="mail"/>
+		<facility name="daemon"/>
+		<facility name="auth"/>
+		<facility name="syslog"/>
+		<facility name="lpr"/>
+		<facility name="news"/>
+		<facility name="uucp"/>
+		<facility name="cron"/>
+		<facility name="authpriv"/>
+		<facility name="ftp"/>
+		<facility name="local0"/>
+		<facility name="local1"/>
+		<facility name="local2"/>
+		<facility name="local3"/>
+		<facility name="local4"/>
+		<facility name="local5"/>
+		<facility name="local6"/>
+		<facility name="local7"/>
+		
+		<priority name="warning"/>
+	</filter>
+	
+	<filter name="notice">
+		<facility name="kern"/>
+		<facility name="user"/>
+		<facility name="mail"/>
+		<facility name="daemon"/>
+		<facility name="auth"/>
+		<facility name="syslog"/>
+		<facility name="lpr"/>
+		<facility name="news"/>
+		<facility name="uucp"/>
+		<facility name="cron"/>
+		<facility name="authpriv"/>
+		<facility name="ftp"/>
+		<facility name="local0"/>
+		<facility name="local1"/>
+		<facility name="local2"/>
+		<facility name="local3"/>
+		<facility name="local4"/>
+		<facility name="local5"/>
+		<facility name="local6"/>
+		<facility name="local7"/>
+		
+		<priority name="notice"/>
+	</filter>
+	
+	<filter name="info">
+		<facility name="kern"/>
+		<facility name="user"/>
+		<facility name="mail"/>
+		<facility name="daemon"/>
+		<facility name="auth"/>
+		<facility name="syslog"/>
+		<facility name="lpr"/>
+		<facility name="news"/>
+		<facility name="uucp"/>
+		<facility name="cron"/>
+		<facility name="authpriv"/>
+		<facility name="ftp"/>
+		<facility name="local0"/>
+		<facility name="local1"/>
+		<facility name="local2"/>
+		<facility name="local3"/>
+		<facility name="local4"/>
+		<facility name="local5"/>
+		<facility name="local6"/>
+		<facility name="local7"/>
+		
+		<priority name="info"/>
+	</filter>
+	
+	<filter name="debug">
+		<facility name="kern"/>
+		<facility name="user"/>
+		<facility name="mail"/>
+		<facility name="daemon"/>
+		<facility name="auth"/>
+		<facility name="syslog"/>
+		<facility name="lpr"/>
+		<facility name="news"/>
+		<facility name="uucp"/>
+		<facility name="cron"/>
+		<facility name="authpriv"/>
+		<facility name="ftp"/>
+		<facility name="local0"/>
+		<facility name="local1"/>
+		<facility name="local2"/>
+		<facility name="local3"/>
+		<facility name="local4"/>
+		<facility name="local5"/>
+		<facility name="local6"/>
+		<facility name="local7"/>
+		
+		<priority name="debug"/>
+	</filter>
+
+	<logpath source="src_udp" filter="emerg" destination="emerg"/>
+	<logpath source="src_udp" filter="alert" destination="alert"/>
+	<logpath source="src_udp" filter="crit" destination="crit"/>
+	<logpath source="src_udp" filter="error" destination="error"/>
+	<logpath source="src_udp" filter="warning" destination="warning"/>
+	<logpath source="src_udp" filter="notice" destination="notice"/>
+	<logpath source="src_udp" filter="info" destination="info"/>
+	<logpath source="src_udp" filter="debug" destination="debug"/>
+
+	<options logdir="log"/>
+</conf>

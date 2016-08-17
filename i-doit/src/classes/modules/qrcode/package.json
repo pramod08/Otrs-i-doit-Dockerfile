@@ -1,0 +1,17 @@
+{
+	"title": "QR Code",
+	"name": "LC__MODULE__QRCODE",
+	"identifier": "qrcode",
+	"author": "Synetics GmbH",
+	"version": "1.0",
+	"description": "QR Code module for i-doit",
+	"type": "core",
+	"files": [],
+	"sql-tables": [],
+	"requirements": {
+		"core": ">= 1.3"
+	},
+	"dependencies": {
+		"php": ["gd"]
+	}
+}

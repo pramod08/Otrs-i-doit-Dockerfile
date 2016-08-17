@@ -1,0 +1,176 @@
+/* cmdb object browser */
+.browser img {
+	border: 0;
+	vertical-align: middle;
+}
+
+.browser a {
+	color: #ce0800;
+	text-decoration: none;
+}
+
+.browser a.link, .browser a.linkSel {
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+
+.browser a.link:hover, .browser a.linkSel:hover {
+	color: #ce0800;
+	text-decoration: none;
+}
+
+.browser a.linkSel {
+	color: #ce0800;
+}
+
+.browser .clip {
+	overflow: hidden;
+}
+
+div.browserObject {
+	padding: 5px;
+}
+
+div.browserObject .content {
+	border: 1px solid #31acc2;
+	border-top: 0;
+	background-color: #e7f5f8;
+}
+
+div.browserObject tr.row {
+	height: 30px;
+}
+
+div.browserObject th {
+	padding: 8px;
+}
+
+div.browserObject th.cell {
+	border: 1px solid #31acc2;
+	background-color: #d7e5e8;
+}
+
+div.browserObject th.cell_button {
+	border: 1px solid #31acc2;
+	border-right: 0;
+	background-color: #d7e5e8;
+}
+
+div.browserObject th.cell_button:hover {
+	background-color: #f7f5f8;
+	cursor: pointer;
+}
+
+div.browserObject th.status {
+	border-bottom: 1px solid #31acc2;
+	text-align: right;
+	width: 95%;
+}
+
+div.browserObject th.cell:hover {
+	background-color: #f7f5f8;
+	cursor: pointer;
+}
+
+div.browserObject th.cell_selected {
+	border: 1px solid #31acc2;
+	border-bottom: 0;
+	background-color: #e7f5f8;
+}
+
+div.browserObject th.cell:active {
+	background-color: #b7c5c8;
+}
+
+div.tree {
+	padding: 5px;
+	vertical-align: top;
+	overflow: auto;
+	height: 350px;
+}
+
+div.detailheader {
+	border-bottom: 1px solid #31acc2;
+	border-top: none;
+	background-color: #d7e5e8;
+	font-weight: bold;
+	height: 25px;
+	padding: 5px;
+}
+
+div.detailheaderClient {
+	border-bottom: 1px solid #31acc2;
+	border-top: none;
+	background-color: #d7e5e8;
+	font-weight: bold;
+	padding: 5px;
+}
+
+#object_details {
+	width: 100%;
+}
+
+.details {
+	padding: 5px;
+	border-bottom: 1px solid #31acc2;
+	background-color: #e7f5f8;
+	width: 100%;
+}
+
+table.browser td {
+	background-color: #e7f5f8;
+	border: 1px solid #31acc2;
+}
+
+table.browser h3 {
+	display: block;
+	background: #fff;
+	border-bottom: 1px solid #31acc2;
+}
+
+/* Styles for connection-/category-browser. */
+#objectList.left {
+	width: 52.5%;
+	overflow: auto;
+}
+
+#portList.right {
+	margin-left: 5px;
+	width: 46.5%;
+	overflow: auto;
+}
+
+div.prototools-options {
+	float: right;
+	margin-top: 3px;
+}
+
+input#createObjectTitle, select#createObjectType {
+	width: 220px;
+}
+
+/* Styles for browser selection sorting */
+.browser-selection-sorter {
+	background: #fff;
+}
+
+.browser-selection-sorter ul {
+	margin: 0;
+	list-style: none;
+}
+
+.browser-selection-sorter ul li {
+	margin: 2px;
+	padding: 3px;
+	background: #eee;
+}
+
+.browser-selection-sorter ul li span.handle {
+	background: url('[{$dir_images}]icons/hatch.gif');
+	cursor: ns-resize;
+}
+
+.browser-selection-sorter .controls {
+	border-top: 1px solid #888;
+	background: #eee;
+}

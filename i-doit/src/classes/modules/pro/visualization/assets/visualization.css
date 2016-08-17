@@ -1,0 +1,205 @@
+#C_VISUALIZATION_CANVAS,
+#C_VISUALIZATION_CANVAS svg {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	-moz-user-select: none;
+}
+
+#C_VISUALIZATION_CANVAS {
+	top: 35px;
+	background: #eee;
+}
+
+#C_VISUALIZATION.fullscreen {
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #eee;
+	overflow: hidden;
+}
+
+#C_VISUALIZATION_TOP.fullscreen {
+	position: fixed;
+	z-index: 1001;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+
+#C_VISUALIZATION_TOP_OPTIONS {
+	overflow: hidden;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	width: 510px;
+}
+
+#C_VISUALIZATION_TOP_OPTIONS.responsive {
+	background: #fff;
+	height: 16px;
+	width: 16px;
+	padding: 5px;
+	z-index: 1000;
+}
+
+#C_VISUALIZATION_TOP_OPTIONS.responsive:hover {
+	width: 200px;
+	border: 1px solid #888;
+	height: auto;
+}
+
+#C_VISUALIZATION_TOP_OPTIONS.responsive button,
+#C_VISUALIZATION_TOP_OPTIONS.responsive span.mr20 {
+	margin-top: 5px;
+}
+
+#C_VISUALIZATION_TOP_OPTIONS.responsive .mr20 {
+	margin-right: 0 !important;
+	margin-top: 10px !important;
+}
+
+#C_VISUALIZATION_TOP_OPTIONS_LABEL {
+	height: 20px;
+}
+
+#C_VISUALIZATION_CANVAS .node {
+	z-index: 1002;
+}
+
+/* Styles for the left content area */
+#C_VISUALIZATION_LEFT {
+	height: 100%;
+	position: relative;
+}
+
+#C_VISUALIZATION_LEFT * {
+	box-sizing: border-box;
+}
+
+#C_VISUALIZATION_LEFT_HEADER {
+	height: 35px;
+	line-height: 25px;
+	padding: 5px;
+	background: url("[{$dir_images}]bc_bg.gif") repeat-x scroll 0 0 #eee;
+	border-bottom: 1px solid #888;
+	color: #454545;
+}
+
+#C_VISUALIZATION_LEFT_CONTENT {
+	padding: 5px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+#C_VISUALIZATION_LEFT_CONTENT img.object-image {
+	width: 100%;
+	height: auto;
+}
+
+#C_VISUALIZATION_LEFT_CONTENT table.obj-info {
+	white-space: normal;
+}
+
+#C_VISUALIZATION_LEFT_CONTENT table.obj-info tr td:first-child {
+	width: 40%;
+	text-align: right;
+	border: none;
+}
+
+#C_VISUALIZATION_LEFT_CONTENT table.obj-info tr td:last-child {
+	width: 60%;
+	text-align: left;
+	padding-left: 10px;
+}
+
+/* If the CMDB-Explorer enters fullscreen we want to display the info-box at the top right corner */
+#C_VISUALIZATION_LEFT_CONTENT.fullscreen {
+	position: fixed;
+	bottom: 5px;
+	right: 5px;
+	border: 1px solid #aaa;
+	z-index: 1002;
+	background: #fff;
+	width: 350px;
+}
+
+/* Styles for the FUNCTIONS */
+#C_VISUALIZATION_LEFT_FUNCTIONS {
+	background: #fff;
+	width: 100%;
+	position: absolute;
+	bottom: 30%;
+	height: 120px;
+}
+
+/* Styles for the LEGEND */
+#C_VISUALIZATION_LEFT_LEGEND {
+	background: #fff;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	height: 30%;
+}
+
+#C_VISUALIZATION_LEFT_LEGEND h3 {
+	position: absolute;
+	width: 100%;
+}
+
+#C_VISUALIZATION_LEFT_LEGEND ul {
+	list-style: none;
+	margin: 0;
+	top: 28px;
+	bottom: 0;
+	width: 100%;
+	overflow-y: auto;
+	position: absolute;
+}
+
+#C_VISUALIZATION_LEFT_LEGEND li {
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+}
+
+#C_VISUALIZATION_LEFT_LEGEND li div {
+	overflow: hidden;
+}
+
+#C_VISUALIZATION_LEFT_LEGEND li label {
+	line-height: 12px;
+}
+
+#C_VISUALIZATION_LEFT_LEGEND li img {
+	height: 16px;
+	width: 16px;
+}
+
+/* Styles for the CMDB-Explorer overlay */
+#C_VISUALIZATION_OVERLAY {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(255, 255, 255, .5);
+	z-index: 1003;
+}
+
+#C_VISUALIZATION_OVERLAY div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: #fff;
+	width: 350px;
+	margin-left: -175px;
+	margin-top: -15px;
+	box-sizing: border-box;
+	padding: 5px;
+	border: 1px solid #aaa;
+}

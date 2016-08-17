@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE isys [
+	<!ELEMENT isys (info|queries)*>
+	<!ELEMENT info (title|version|requirement|directory|revision|release)*>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT version (#PCDATA)>
+	<!ELEMENT requirement (revision|version)*>
+	<!ELEMENT revision (#PCDATA)>
+	<!ELEMENT directory (#PCDATA)>
+	<!ELEMENT release (#PCDATA)>
+	<!ELEMENT queries (query)*>
+	<!ELEMENT query (id|title|check|errmsg|sql)*>
+	<!ELEMENT id (#PCDATA)>
+	<!ELEMENT check (#PCDATA)>
+	<!ATTLIST check ident CDATA #REQUIRED>
+	<!ELEMENT errmsg (#PCDATA)>
+	<!ELEMENT sql (exec)*>
+	<!ELEMENT exec (#PCDATA)>
+	<!ATTLIST exec ident CDATA #REQUIRED>
+	]>
+<isys>
+	<info>
+		<title>Pro</title>
+		<version>1.5</version>
+		<release>2015-03-09</release>
+	</info>
+	<queries>
+		<query>
+			<id>1</id>
+			<title></title>
+			<check ident="C_VALUE_EXISTS">SELECT isysgui_catg__id FROM isysgui_catg WHERE isysgui_catg__const = 'C__CATG__CLUSTER_SHARED_STORAGE'</check>
+			<errmsg></errmsg>
+			<sql>
+				<exec ident="false">
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(7, 1, 'LC__CMDB__CATG__CLUSTER_SHARED_STORAGE', NULL, 'C__CATG__CLUSTER_SHARED_STORAGE', 'isys_catg_virtual', 'isys_cmdb_dao_category_g_cluster_shared_storage', 5, 59, 0, 0, 1, 2, 0, 0);
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(7, 1, 'LC__CMDB__CATG__CLUSTER_SHARED_VIRTUAL_SWITCH', NULL, 'C__CATG__CLUSTER_SHARED_VIRTUAL_SWITCH', 'isys_catg_virtual', 'isys_cmdb_dao_category_g_cluster_shared_virtual_switch', 5, 59, 0, 0, 1, 2, 0, 0);
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(7, 1, 'LC__CMDB__CATG__CLUSTER_VITALITY', NULL, 'C__CATG__CLUSTER_VITALITY', 'isys_catg_virtual', 'isys_cmdb_dao_category_g_cluster_vitality', 6, 59, 0, 0, 1, 2, 0, 0);
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(2, 1, 'LC__CMDB__CATG__OBJECT_VITALITY', NULL, 'C__CATG__OBJECT_VITALITY', 'isys_catg_virtual', 'isys_cmdb_dao_category_g_object_vitality', 6, NULL, 0, 0, 1, 2, 0, 0);
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(6, 2, 'LC__CMDB__CATG__PLANNING', NULL, 'C__CATG__PLANNING', 'isys_catg_planning', 'isys_cmdb_dao_category_g_planning', 1, NULL, 1, 0, 1, 2, 1, 1);
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(NULL, 1, 'LC__CMDB__CATG__RACK_VIEW', NULL, 'C__CATG__RACK_VIEW', 'isys_catg_virtual', 'isys_cmdb_dao_category_g_rack_view', 5, NULL, 0, NULL, 0, 2, 0, 0);
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(NULL, 1, 'LC__CMDB__CATG__SUPERNET', NULL, 'C__CATG__VIRTUAL_SUPERNET', 'isys_catg_virtual', 'isys_cmdb_dao_category_g_virtual_supernet', 0, NULL, 0, 0, 1, 2, 0, 1);
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(NULL, 1, 'LC__CMDB__CATG__AUTH', NULL, 'C__CATG__VIRTUAL_AUTH', 'isys_catg_virtual', 'isys_cmdb_dao_category_g_virtual_auth', 5, NULL, 0, 0, 1, 2, 1, 0);
+
+					INSERT IGNORE INTO `isysgui_catg` (`isysgui_catg__isys_tree_group__id`, `isysgui_catg__type`, `isysgui_catg__title`, `isysgui_catg__description`, `isysgui_catg__const`, `isysgui_catg__source_table`, `isysgui_catg__class_name`, `isysgui_catg__sort`, `isysgui_catg__parent`, `isysgui_catg__list_multi_value`, `isysgui_catg__property`, `isysgui_catg__search`, `isysgui_catg__status`, `isysgui_catg__standard`, `isysgui_catg__overview`) VALUES(4, 1, 'LC__CMDB__CATG__NETWORK_PORT_OVERVIEW', 'Network port overview', 'C__CMDB__SUBCAT__NETWORK_PORT_OVERVIEW', 'isys_catg_port', 'isys_cmdb_dao_category_g_network_port_overview', 110, 7, 0, 0, 0, 2, 0, 0);
+				</exec>
+			</sql>
+		</query>
+		<query>
+			<id>2</id>
+			<title></title>
+			<check ident="C_VALUE_EXISTS">SELECT isysgui_cats__id FROM isysgui_cats WHERE isysgui_cats__const = 'C__CATS__CHASSIS_VIEW'</check>
+			<errmsg></errmsg>
+			<sql>
+				<exec ident="false">
+					INSERT IGNORE INTO `isysgui_cats` (`isysgui_cats__type`, `isysgui_cats__title`, `isysgui_cats__description`, `isysgui_cats__class_name`, `isysgui_cats__idoit_cats_number`, `isysgui_cats__const`, `isysgui_cats__sort`, `isysgui_cats__parent`, `isysgui_cats__list_multi_value`, `isysgui_cats__source_table`, `isysgui_cats__property`, `isysgui_cats__search`, `isysgui_cats__status`) VALUES(1, 'LC__CMDB__CATS__CHASSIS_VIEW', NULL, 'isys_cmdb_dao_category_s_chassis_view', NULL, 'C__CATS__CHASSIS_VIEW', 5, NULL, 0, 'isys_cats_chassis_view_list', 0, 1, 2);
+					INSERT IGNORE INTO `isysgui_cats` (`isysgui_cats__type`, `isysgui_cats__title`, `isysgui_cats__description`, `isysgui_cats__class_name`, `isysgui_cats__idoit_cats_number`, `isysgui_cats__const`, `isysgui_cats__sort`, `isysgui_cats__parent`, `isysgui_cats__list_multi_value`, `isysgui_cats__source_table`, `isysgui_cats__property`, `isysgui_cats__search`, `isysgui_cats__status`) VALUES(2, 'LC__CMDB__CATS__ENCLOSURE', 'Schrank (im Raum)', 'isys_cmdb_dao_category_s_enclosure', NULL, 'C__CATS__ENCLOSURE', 5, NULL, 0, 'isys_cats_enclosure_list', 0, 1, 2);
+					INSERT IGNORE INTO `isysgui_cats` (`isysgui_cats__type`, `isysgui_cats__title`, `isysgui_cats__description`, `isysgui_cats__class_name`, `isysgui_cats__idoit_cats_number`, `isysgui_cats__const`, `isysgui_cats__sort`, `isysgui_cats__parent`, `isysgui_cats__list_multi_value`, `isysgui_cats__source_table`, `isysgui_cats__property`, `isysgui_cats__search`, `isysgui_cats__status`) VALUES(1, 'LC__CMDB__CATS__LICENCE_OVERVIEW', '', 'isys_cmdb_dao_category_s_lic_overview', '', 'C__CMDB__SUBCAT__LICENCE_OVERVIEW', 1, 24, 0, 'isys_cats_lic_list', 0, 1, 2);
+					INSERT IGNORE INTO `isysgui_cats` (`isysgui_cats__type`, `isysgui_cats__title`, `isysgui_cats__description`, `isysgui_cats__class_name`, `isysgui_cats__idoit_cats_number`, `isysgui_cats__const`, `isysgui_cats__sort`, `isysgui_cats__parent`, `isysgui_cats__list_multi_value`, `isysgui_cats__source_table`, `isysgui_cats__property`, `isysgui_cats__search`, `isysgui_cats__status`) VALUES(1, 'LC__CMDB__CATS__NET_IP_ADDRESSES', '', 'isys_cmdb_dao_category_s_net_ip_addresses', '', 'C__CATS__NET_IP_ADDRESSES', 5, 22, 0, 'isys_cats_net_ip_addresses_list', 0, 1, 2);
+					INSERT IGNORE INTO `isysgui_cats` (`isysgui_cats__type`, `isysgui_cats__title`, `isysgui_cats__description`, `isysgui_cats__class_name`, `isysgui_cats__idoit_cats_number`, `isysgui_cats__const`, `isysgui_cats__sort`, `isysgui_cats__parent`, `isysgui_cats__list_multi_value`, `isysgui_cats__source_table`, `isysgui_cats__property`, `isysgui_cats__search`, `isysgui_cats__status`) VALUES(1, 'LC__CMDB__CATS__PDU__OVERVIEW', NULL, 'isys_cmdb_dao_category_s_pdu_overview', NULL, 'C__CATS__PDU_OVERVIEW', 5, 64, 0, 'isys_catg_virtual_list', 0, 1, 2);
+				</exec>
+			</sql>
+		</query>
+		<query>
+			<id>3</id>
+			<title></title>
+			<check ident="C_VALUE_EXISTS">SELECT isys_widgets__id FROM isys_widgets WHERE isys_widgets__const = 'C__WIDGET__STATS'</check>
+			<errmsg></errmsg>
+			<sql>
+				<exec ident="false">
+					INSERT IGNORE INTO `isys_widgets` (`isys_widgets__id`, `isys_widgets__title`, `isys_widgets__description`, `isys_widgets__identifier`, `isys_widgets__const`, `isys_widgets__default_config`, `isys_widgets__sorting`, `isys_widgets__default`) VALUES(4, 'LC__WIDGET__STATS', 'Displays a small pie chart with some statistics', 'stats', 'C__WIDGET__STATS', '{"title":"LC__CMDB__CATG__OBJECT","chart_type":"Pie","legend":"on","obj_types":["C__OBJTYPE__SERVER","C__OBJTYPE__CLIENT","C__OBJTYPE__SWITCH","C__OBJTYPE__BUILDING","C__OBJTYPE__ENCLOSURE","C__OBJTYPE__ROOM","C__OBJTYPE__PHONE","C__OBJTYPE__PERSON","C__OBJTYPE__PERSON_GROUP"]}', 3, 1);
+					INSERT IGNORE INTO `isys_widgets` (`isys_widgets__id`, `isys_widgets__title`, `isys_widgets__description`, `isys_widgets__identifier`, `isys_widgets__const`, `isys_widgets__default_config`, `isys_widgets__sorting`, `isys_widgets__default`) VALUES(5, 'LC__WIDGET__STATSTABLE', 'A formal table of various statistics.', 'statstable', 'C__WIDGET__STATSTABLE', '', 99, 0);
+					INSERT IGNORE INTO `isys_widgets` (`isys_widgets__id`, `isys_widgets__title`, `isys_widgets__description`, `isys_widgets__identifier`, `isys_widgets__const`, `isys_widgets__default_config`, `isys_widgets__sorting`, `isys_widgets__default`) VALUES(7, 'LC__WIDGET__REPORTS', 'This is a "report" for displaying any of your reports on the dashboard.', 'reports', 'C__WIDGET__REPORTS', '{"report_id":0,"count":"25"}', 99, 0);
+					INSERT IGNORE INTO `isys_widgets` (`isys_widgets__id`, `isys_widgets__title`, `isys_widgets__description`, `isys_widgets__identifier`, `isys_widgets__const`, `isys_widgets__default_config`, `isys_widgets__sorting`, `isys_widgets__default`) VALUES(14, 'CMDB-Explorer', 'CMDB-Explorer object view', 'cmdbexplorer', 'C__WIDGET__CMDB_EXPLORER', 'null', 99, 0);
+					INSERT IGNORE INTO `isys_widgets` (`isys_widgets__id`, `isys_widgets__title`, `isys_widgets__description`, `isys_widgets__identifier`, `isys_widgets__const`, `isys_widgets__default_config`, `isys_widgets__sorting`, `isys_widgets__default`) VALUES(17, 'LC__WIDGET__IT_SERVICE_CONSISTENCY', 'This widget is similar like the report view', 'itserviceconsistency', 'C__WIDGET__IT_SERVICE_CONSISTENCY', '{"show_all":"0"}', 99, 0);
+					INSERT IGNORE INTO `isys_widgets` (`isys_widgets__id`, `isys_widgets__title`, `isys_widgets__description`, `isys_widgets__identifier`, `isys_widgets__const`, `isys_widgets__default_config`, `isys_widgets__sorting`, `isys_widgets__default`) VALUES(18, 'LC__WIDGET__EVAL_OVERVIEW', 'This widget displays information about your eval/subscription', 'eval', 'C__WIDGET__EVAL_OVERVIEW', '{"layout":"horizontal","short_form":"0"}', 2, 1);
+				</exec>
+			</sql>
+		</query>
+		<query>
+			<id>4</id>
+			<title></title>
+			<check ident="C_VALUE_EXISTS">SELECT isys_module__id FROM isys_module WHERE isys_module__const = 'C__MODULE__QCW'</check>
+			<errmsg></errmsg>
+			<sql>
+				<exec ident="false">
+					INSERT INTO `isys_module` (`isys_module__title`, `isys_module__identifier`, `isys_module__const`, `isys_module__date_install`, `isys_module__class`, `isys_module__persistent`, `isys_module__status`, `isys_module__parent`, `isys_module__icon`) VALUES('LC__MODULE__QCW', 'quick_configuration_wizard', 'C__MODULE__QCW', '2012-12-05 15:06:44', 'isys_module_quick_configuration_wizard', 0, 2, NULL, 'images/icons/silk/brick.png');
+					INSERT INTO `isys_module` (`isys_module__title`, `isys_module__identifier`, `isys_module__const`, `isys_module__date_install`, `isys_module__class`, `isys_module__persistent`, `isys_module__status`, `isys_module__parent`, `isys_module__icon`) VALUES('LC__MODULE__JDISC', 'jdisc', 'C__MODULE__JDISC', '2013-06-20 11:08:17', 'isys_module_jdisc', 1, 2, NULL, 'images/icons/silk/brick.png');
+					INSERT INTO `isys_module` (`isys_module__title`, `isys_module__identifier`, `isys_module__const`, `isys_module__date_install`, `isys_module__class`, `isys_module__persistent`, `isys_module__status`, `isys_module__parent`, `isys_module__icon`) VALUES('LC__MODULE__REPORT__REPORT_MANAGER', 'reports', 'C__MODULE__REPORT', '2010-02-10 10:46:13', 'isys_module_report', 1, 2, NULL, 'images/icons/silk/report.png');
+					INSERT INTO `isys_module` (`isys_module__title`, `isys_module__identifier`, `isys_module__const`, `isys_module__date_install`, `isys_module__class`, `isys_module__persistent`, `isys_module__status`, `isys_module__parent`, `isys_module__icon`) VALUES('Loginventory', 'loginventory', 'C__MODULE__LOGINVENTORY', '2012-12-05 15:06:44', 'isys_module_loginventory', 0, 2, NULL, 'images/icons/silk/brick.png');
+				</exec>
+			</sql>
+		</query>
+	</queries>
+</isys>

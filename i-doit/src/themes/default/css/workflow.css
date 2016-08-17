@@ -1,0 +1,29 @@
+#workflow br {
+	clear: both;
+}
+
+#wf_container #actions {
+	margin: 10px 0 0 0;
+	cursor: pointer;
+	padding: 1px 1px 1px 5px;
+}
+
+#wf_container #actions.over {
+	background-color: #d5d5d5;
+	border-color: #72c1d3 #c5e5ed #c5e5ed #72c1d3;
+}
+
+#wf_container #actions h2,
+#wf_container #actions h3 {
+	font-weight: normal;
+	margin: 0;
+}
+
+#wf_container #actiondata {
+	margin: 0;
+	padding: 0;
+}
+
+#wf_container #actiondata label {
+	font-weight: bold;
+}

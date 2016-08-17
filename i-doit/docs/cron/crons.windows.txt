@@ -1,0 +1,22 @@
+---------------------------------------------------------------
+CRON is a UNIX service, which can run time controlled commands.
+Unfortunately we are not allowed to ship a Windows version of
+CRON within this package.
+
+For a Windows version of CRON, you can download PyCRON:
+ http://www.kalab.com/freeware/pycron/pycron.htm
+ 
+An example and help called crontab.windows and README are 
+included inside the current directory.
+---------------------------------------------------------------
+CRON ist ein UNIX Dienst welcher in der Lage ist, zeitgesteuerte
+Befehle auszuführen. Leider dürfen wir aus Lizenzrechtlichen Gründen
+keine Windows Version von CRON mitliefern.
+
+Ein Windows äquivalent zu CRON liefert kalab.com mit der Software
+PyCRON. Bitte downloaden Sie dieses manuell:
+ http://www.kalab.com/freeware/pycron/pycron.htm
+ 
+Eine Hilfe bzw. ein crontab Beispiel liefern die beiden Dateien
+README und crontab.windows aus dem aktuellen Verzeichnis.
+---------------------------------------------------------------

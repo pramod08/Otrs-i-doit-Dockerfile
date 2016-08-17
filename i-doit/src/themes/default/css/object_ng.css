@@ -1,0 +1,319 @@
+div.browserContent {
+	height:547px;
+	overflow:auto;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+pre#logWindow {
+	height:520px;
+	overflow:auto;
+}
+
+ul.browser-tabs {
+	height: 26px;
+	list-style: none;
+	border-bottom:1px solid #888;
+	padding-top:8px;
+	font-size:10px;
+	padding-left:0;
+}
+
+ul.browser-tabs li {
+	float: left;
+	font-weight:bold
+}
+
+ul.browser-tabs a {
+	float: left;
+	padding: 5px 8px;
+	margin-left: 6px;
+	text-decoration: none;
+	height:15px;
+	color:#555;
+}
+
+ul.browser-tabs li.disabled a {
+	color:#999;
+}
+
+ul.browser-tabs a:hover {
+	color:#000;
+}
+
+ul.browser-tabs a.active {
+	background-color: #fff;
+	border:1px solid #888;
+	border-bottom:1px solid transparent !important;
+	color:#333;
+}
+
+.browser-content {
+	font-size:9px;
+}
+
+.browser-content .browser-tab-content {
+	background-color:#fff;
+	/* LF: This margin will prevent the browser content from floating around, when the browser zoom is set to <100% */
+	margin-top: 1px;
+}
+
+/* ---------------------------------- */
+/* Taborder styles */
+/* ---------------------------------- */
+
+.prototools-table {
+	width:100%;
+	text-align:left;
+	border-spacing:0;
+	margin-top:5px;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.prototools-table td,
+.prototools-table th {
+	border-right: 1px solid #d6d6d6	;
+	padding:1px 3px 1px 3px;
+	line-height:18px;
+	white-space: nowrap;
+	position: relative; /* ID-1110 */
+}
+
+.prototools-table th {
+	border-bottom:1px solid #ccc;
+	background:#ddd url('images/gradient.png') repeat-x;
+	text-shadow: 0 1px 0 #fff;
+	line-height:20px;
+	font-size:10px;
+	cursor:default;
+}
+
+.prototools-table tr.line0 {
+	background-color:#ffffff;
+}
+
+.prototools-table tr.line1 {
+	background-color:#f3f3f3;
+}
+
+.prototools-table tr.on{
+	background-color:#eee;
+	cursor:pointer;
+}
+
+.prototools-table tr.selected {
+	background-color:#ddd;
+	cursor:pointer;
+}
+
+.prototools-table tr.selected td {
+	font-weight:bold;
+}
+
+div.prototools-pager {
+	margin:10px;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+div.prototools-pager .currentpage {
+	padding-left:5px;
+	padding-right:5px;
+	font-weight:bold;
+}
+
+div.prototools-pager .totalpages {
+	padding:0;
+}
+
+div.prototools-pager a {
+	margin: 0 3px;
+	cursor:default;
+	padding: 2px 4px 2px 4px;
+	text-shadow:none;
+}
+
+.prototools-table th.desc {
+	background:#ddd url('images/list/desc.gif') no-repeat right center;
+	user-select: none;
+}
+
+.prototools-table th.asc {
+	background:#ddd url('images/list/asc.gif') no-repeat right center;
+	border-right:1px solid #d6d6d6;
+}
+
+div.prototools-options {
+	float:right;
+	margin-right:10px;
+}
+
+div.prototools-options input,
+div.prototools-options select {
+	border: 1px solid #CCC;
+	margin:0 0 5px 5px;
+	padding:2px;
+}
+
+/* ---------------------------------- */
+
+td.toolbar a {
+	font-weight:bold;
+	display:block;
+	padding:0;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+#leftPane {
+	width:185px;
+	background-color:#D6DDE5;
+	border-right:1px solid #888888;
+    overflow:hidden;
+    position: relative;
+}
+
+#leftPane img#collapser {
+    position: absolute;
+    top:8px;
+    right:0;
+    cursor:pointer;
+}
+
+#leftPane h3 {
+	margin:0;
+	border-bottom:1px;
+	background-color:#fff;
+	cursor:default;
+    width:185px;
+}
+
+#leftPane ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+    width:185px;
+}
+
+#leftPane ul li {
+    padding:8px 0 8px 35px;
+    font-weight:bold;
+    font-size:10px;
+    cursor:default;
+}
+
+#leftPane ul li.selected {
+	background-color: rgb(21, 83, 170);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(92, 147, 213)), to(rgb(21, 83, 170)));
+	background-image: -moz-linear-gradient(top, rgb(92, 147, 213), rgb(21, 83, 170));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#5c93d5, endColorStr=#1553aa);
+    border-top: 1px solid rgb(68, 128, 200);
+    color:#fff;
+    text-shadow: 0 1px #000;
+}
+
+#preselectionLoader {
+	text-align:center;
+	padding-top: 270px;
+}
+
+#ajaxLoader {
+	position:absolute;
+	right:45px;
+}
+
+#browser_tabs .logview {
+	position:absolute;
+	right:10px;
+}
+
+#latestLog {
+	width:680px;
+	overflow:hidden;
+	text-align:right;
+	margin-right:10px;
+	margin-top: 3px;
+}
+
+#new-object,
+#new-objectgroup {
+	position:absolute;
+	z-index:9999;
+	width:380px;
+	background-color:#fff;
+	border:1px solid #444;
+	border-top:0;
+	-moz-box-shadow:3px 3px 6px #888;
+  	-webkit-box-shadow:3px 3px 6px #888;
+}
+
+.browserContent .groups {
+	padding:7px 0 6px 10px;
+	overflow:hidden;
+}
+
+.browserContent table tr td span.quickinfo {
+	display: none;
+	/* Below: Changes for ID-1110 */
+	position: absolute;
+	right: 3px;
+	top: 4px;
+}
+
+.browserContent table tr:hover td span.quickinfo {
+	display: block;
+}
+
+.browserContent div.toolbar {
+	margin: 12px 6px;
+}
+
+.fadeMessage {
+	font-weight:bold;
+	font-size:10px;
+	color:#fff;
+	padding:1px 7px 2px 7px;
+	border:1px solid #444;
+	text-shadow: 0 1px #000;
+	background-color: rgb(21, 83, 170);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(92, 147, 213)), to(rgb(21, 83, 170)));
+	background-image: -moz-linear-gradient(top, rgb(92, 147, 213), rgb(21, 83, 170));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#5c93d5, endColorStr=#1553aa);
+}
+
+#objectSearch {
+	background-color:#eee;
+	height:490px;
+}
+
+.emptyPageMessage {
+	text-align:center;
+	margin-top:180px;
+	font-size:22px;
+	color:#bbb;
+	text-shadow: 1px 1px #fff;
+	font-weight:bold;
+}
+
+#rightsError {
+	position: absolute;
+	z-index: 9999;
+	width: 350px;
+	left: 50%;
+	margin-left: -175px;
+	top: 70px;
+	border:1px solid #a61616;
+}
+
+#rightsError h3 {
+    background-color:#FF4343;
+}

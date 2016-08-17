@@ -1,0 +1,30 @@
+{
+	"name": "Events",
+	"identifier": "events",
+	"author": "Synetics GmbH",
+	"version": "1.0",
+	"description": "Event module",
+	"type": "addon",
+	"icon": "images/icons/silk/lightbulb.png",
+	"files": [
+
+	],
+	"sql-tables": [
+		"isys_event",
+        "isys_event_log",
+        "isys_event_queue",
+		"isys_event_subscription"
+	],
+	"requirements": {
+		"core": ">= 1.5"
+	},
+	"dependencies": {
+		"php": [
+			"json",
+			"mysqli"
+		],
+	  	"apache": [
+		  	"mod_rewrite"
+		]
+	}
+}

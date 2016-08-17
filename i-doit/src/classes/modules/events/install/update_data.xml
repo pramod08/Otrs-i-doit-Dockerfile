@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE isys [
+	<!ELEMENT isys (info|queries)*>
+	<!ELEMENT info (title|version|requirement|directory|revision|release)*>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT version (#PCDATA)>
+	<!ELEMENT requirement (revision|version)*>
+	<!ELEMENT revision (#PCDATA)>
+	<!ELEMENT directory (#PCDATA)>
+	<!ELEMENT release (#PCDATA)>
+	<!ELEMENT queries (query)*>
+	<!ELEMENT query (id|title|check|errmsg|sql)*>
+	<!ELEMENT id (#PCDATA)>
+	<!ELEMENT check (#PCDATA)>
+	<!ATTLIST check ident CDATA #REQUIRED>
+	<!ELEMENT errmsg (#PCDATA)>
+	<!ELEMENT sql (exec)*>
+	<!ELEMENT exec (#PCDATA)>
+	<!ATTLIST exec ident CDATA #REQUIRED>
+	]>
+<isys>
+	<info>
+		<title>Events</title>
+		<version>1.5</version>
+		<release>2015-03-01</release>
+	</info>
+	<queries>
+		<query>
+			<id>1</id>
+			<title>Creating table "isys_event"</title>
+			<check ident="C_CREATE_TABLE">isys_event</check>
+			<sql>
+				<exec ident="false">
+					CREATE TABLE IF NOT EXISTS `isys_event` (
+					  `isys_event__id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+					  `isys_event__isys_module__id` int(10) unsigned NOT NULL COMMENT 'module id',
+					  `isys_event__identifier` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+					  `isys_event__handler` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+					  `isys_event__title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+					  `isys_event__description` text COLLATE utf8_unicode_ci NOT NULL,
+					  `isys_event__status` int(1) NOT NULL DEFAULT '2',
+					  PRIMARY KEY (`isys_event__id`),
+					  KEY `isys_event__status` (`isys_event__status`)
+					) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+					ALTER TABLE `isys_event` ADD CONSTRAINT `isys_event__isys_module__id` FOREIGN KEY (`isys_event__isys_module__id`) REFERENCES `isys_module` (`isys_module__id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+                    ALTER TABLE `isys_event` ADD UNIQUE `event_index` (`isys_event__isys_module__id`, `isys_event__identifier`) COMMENT '';
+				</exec>
+			</sql>
+		</query>
+		<query>
+			<id>2</id>
+			<title>Creating table "isys_event_subscription"</title>
+			<check ident="C_CREATE_TABLE">isys_event_subscription</check>
+			<sql>
+				<exec ident="false">
+					CREATE TABLE IF NOT EXISTS `isys_event_subscription` (
+					  `isys_event_subscription__id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+					  `isys_event_subscription__isys_event__id` int(10) unsigned NOT NULL COMMENT 'event id',
+					  `isys_event_subscription__isys_obj__id` int(10) unsigned DEFAULT NULL COMMENT 'user id',
+					  `isys_event_subscription__title` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'description',
+					  `isys_event_subscription__queued` int(1) unsigned DEFAULT NULL COMMENT 'instant or queued event handling',
+					  `isys_event_subscription__type` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'event handler type',
+					  `isys_event_subscription__command` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'execution command',
+					  `isys_event_subscription__options` text COLLATE utf8_unicode_ci NOT NULL,
+					  `isys_event_subscription__date_created` datetime NOT NULL,
+					  PRIMARY KEY (`isys_event_subscription__id`),
+					  KEY `isys_event_subscription__isys_event__id` (`isys_event_subscription__isys_event__id`),
+					  KEY `isys_event_subscription__isys_obj__id` (`isys_event_subscription__isys_obj__id`)
+					) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+					ALTER TABLE `isys_event_subscription` ADD CONSTRAINT `isys_event_subscription__isys_event__id` FOREIGN KEY (`isys_event_subscription__isys_event__id`) REFERENCES `isys_event` (`isys_event__id`) ON DELETE CASCADE ON UPDATE CASCADE;
+					ALTER TABLE `isys_event_subscription` ADD CONSTRAINT `isys_event_subscription__isys_obj__id` FOREIGN KEY (`isys_event_subscription__isys_obj__id`) REFERENCES `isys_obj` (`isys_obj__id`) ON DELETE SET NULL ON UPDATE CASCADE;
+				</exec>
+			</sql>
+		</query>
+		<query>
+			<id>3</id>
+			<title>Creating table "isys_event_log"</title>
+			<check ident="C_CREATE_TABLE">isys_event_log</check>
+			<sql>
+				<exec ident="false">
+					CREATE TABLE IF NOT EXISTS `isys_event_log` (
+					  `isys_event_log__id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+					  `isys_event_log__isys_event_subscription__id` int(10) unsigned NOT NULL COMMENT 'event subscription id',
+					  `isys_event_log__message` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+					  `isys_event_log__response` text COLLATE utf8_unicode_ci NOT NULL,
+					  `isys_event_log__status` int(1) COLLATE utf8_unicode_ci NOT NULL COMMENT 'process exit status',
+					  `isys_event_log__datetime` datetime NOT NULL,
+					  PRIMARY KEY (`isys_event_log__id`),
+					  KEY `isys_event_log__isys_event_subscription__id` (`isys_event_log__isys_event_subscription__id`)
+					) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+					ALTER TABLE `isys_event_log` ADD CONSTRAINT `isys_event_log__isys_event_subscription__id` FOREIGN KEY (`isys_event_log__isys_event_subscription__id`) REFERENCES `isys_event_subscription` (`isys_event_subscription__id`) ON DELETE SET NULL ON UPDATE CASCADE;
+				</exec>
+			</sql>
+		</query>
+		<query>
+			<id>4</id>
+			<title>Creating table "isys_event_queue"</title>
+			<check ident="C_CREATE_TABLE">isys_event_queue</check>
+			<sql>
+				<exec ident="false">
+					CREATE TABLE IF NOT EXISTS `isys_event_queue` (
+					  `isys_event_queue__id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+					  `isys_event_queue__isys_event_subscription__id` int(10) unsigned NOT NULL COMMENT 'event subscription id',
+					  `isys_event_queue__data` text COLLATE utf8_unicode_ci NOT NULL,
+					  `isys_event_queue__datetime` datetime NOT NULL,
+					  PRIMARY KEY (`isys_event_queue__id`),
+					  KEY `isys_event_queue__isys_event_subscription__id` (`isys_event_queue__isys_event_subscription__id`)
+					) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+					ALTER TABLE `isys_event_queue` ADD CONSTRAINT `isys_event_queue__isys_event_subscription__id` FOREIGN KEY (`isys_event_queue__isys_event_subscription__id`) REFERENCES `isys_event_subscription` (`isys_event_subscription__id`) ON DELETE CASCADE ON UPDATE CASCADE;
+				</exec>
+			</sql>
+		</query>
+	</queries>
+</isys>

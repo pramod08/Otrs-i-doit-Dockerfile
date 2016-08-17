@@ -1,0 +1,23 @@
+{
+	"name": "Error Tracker",
+	"identifier": "error_tracker",
+	"author": "Synetics GmbH",
+	"version": "1.0",
+	"description": "Error Tracking Module",
+	"type": "addon",
+	"icon": "images/icons/silk/bug.png",
+	"files": [
+
+	],
+	"sql-tables": [
+	],
+	"requirements": {
+		"core": ">= 1.5"
+	},
+	"dependencies": {
+		"php": [
+			"json",
+			"mysqli"
+		]
+	}
+}

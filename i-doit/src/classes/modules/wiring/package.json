@@ -1,0 +1,25 @@
+{
+	"name": "LC__MODULE__WIRING",
+	"title": "Wiring",
+	"identifier": "wiring",
+	"author": "Synetics GmbH",
+	"version": "1.0",
+	"description": "Wiring module",
+	"type": "addon",
+	"parent": "C__MODULE__CMDB",
+	"icon": "images/icons/silk/disconnect.png",
+	"files": [],
+	"sql-tables": [],
+	"requirements": {
+		"core": ">= 1.6"
+	},
+	"dependencies": {
+		"php": [
+			"json",
+			"mysqli"
+		],
+		"apache": [
+			"mod_rewrite"
+		]
+	}
+}

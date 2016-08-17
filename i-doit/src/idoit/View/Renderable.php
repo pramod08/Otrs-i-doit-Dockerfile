@@ -1,0 +1,46 @@
+<?php
+/**
+ * i-doit - Documentation and CMDB solution for IT environments
+ *
+ * This file is part of the i-doit framework. Modify at your own risk.
+ *
+ * Please visit http://www.i-doit.com/license for a full copyright and license information.
+ *
+ * @version     1.7.3
+ * @package     i-doit
+ * @author      synetics GmbH
+ * @copyright   synetics GmbH
+ * @url         http://www.i-doit.com
+ * @license     http://www.i-doit.com/license
+ */
+namespace idoit\View;
+
+use idoit\Model\Dao\Base as DaoBase;
+
+/**
+ * i-doit View Base class
+ *
+ * @package     i-doit
+ * @subpackage  Core
+ * @author      Dennis Stücken <dstuecken@synetics.de>
+ * @copyright   synetics GmbH
+ * @license     http://www.i-doit.com/license
+ */
+interface Renderable
+{
+
+    /**
+     * Process view details, do smarty assignments, and so on..
+     *
+     * @return Renderable
+     */
+    public function process(\isys_module $p_module, \isys_component_template $p_template, DaoBase $p_model);
+
+    /**
+     * Get the evaluated contents of the object.
+     *
+     * @return Renderable
+     */
+    public function render();
+
+}

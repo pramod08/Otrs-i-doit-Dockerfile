@@ -1,0 +1,404 @@
+/*------------------------------------------------------------------------*/
+/* Forms                                                                  */
+/*------------------------------------------------------------------------*/
+
+/* Some CSS reset going on here */
+input, textarea, select, button {
+	margin: 0;
+	letter-spacing: normal;
+	word-spacing: normal;
+	text-transform: none;
+	text-indent: 0;
+	text-shadow: none;
+	display: inline-block;
+	text-align: start;
+}
+
+input, textarea {
+	background: #fbfbfb;
+}
+
+select:hover {
+	border-color: rgba(0, 0, 0, 0.3);
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+	color: black;
+}
+
+select:enabled, input[type='checkbox']:enabled, input[type='number']:enabled, input[type='password']:enabled, input[type='radio']:enabled, input[type='search']:enabled, input[type='text']:enabled, input[type='url']:enabled, input:not([type]):enabled, {
+	-webkit-transition: border-color 200ms;
+	-moz-transition: border-color 200ms;
+	transition: border-color 200ms;
+	border-color: rgb(77, 144, 254);
+	outline: none;
+}
+
+select {
+	min-height: 2em;
+	min-width: 4em;
+}
+
+select, button, input[type='button'], input[type='submit'], input[type='checkbox'], input[type='radio'] {
+	/* -webkit-appearance:  none; */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid #aaa;
+	padding: 2px 5px;
+	box-sizing: border-box;
+	height: 24px;
+	border-radius: 0;
+	color: #444;
+	font: inherit;
+	margin: 0 1px 0 0;
+	outline: none;
+	text-shadow: 0 1px 0 rgb(240, 240, 240);
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+	border: none;
+	padding: 0;
+}
+
+label {
+	line-height: 24px;
+	height: 24px;
+	font-weight: normal;
+}
+
+label > * {
+	/* Align all direct children vertically! */
+	vertical-align: middle;
+}
+
+div.nicEdit-selected,
+textarea:focus,
+select:focus,
+input[type="text"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="time"]:focus,
+input[type="range"]:focus {
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+	box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+	border: 1px solid #5897fb;
+	/* This is used for some browsers which already display a border (e.g. webkit). */
+	outline: 0;
+}
+
+/* The width of .input-dual-large and .input-dual-small equal .input */
+.input-dual-large {
+	width: 400px !important;
+}
+
+.input-dual-small {
+	width: 157px !important;
+}
+
+/* The width of .input-dual-mini and .input-dual-mini equal .input-small */
+.input-dual-mini {
+	width: 138.5px !important
+}
+
+/* New money-appendix style */
+.money-appendix {
+	position: relative;
+}
+
+.money-appendix strong.money-sign {
+	position: absolute;
+	right: 5px;
+	top: 1px;
+}
+
+.input-dual-radio {
+	width: 543px !important;
+}
+
+/* Deprecated Please use "btn" */
+a.button,
+input.button,
+button.button {
+	padding: 2px;
+	border: 1px solid #aaa;
+	background: #ddd url('[{$dir_images}]gradient.png') repeat-x;
+	text-shadow: 0 1px 0 #fff;
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	color: #000;
+	cursor: pointer;
+}
+
+/* Deprecated Please use "btn" - Special CSS for removing the dotted lines inside buttons (Firefox) */
+a.button::-moz-focus-inner,
+input.button::-moz-focus-inner,
+button.button::-moz-focus-inner {
+	border: 0;
+}
+
+/* Deprecated Please use "btn" */
+a.button {
+	display: inline-block;
+}
+
+/* Deprecated Please use "btn btn-small" */
+a.button.slim,
+input.button.slim,
+button.button.slim {
+	padding: 2px 4px 2px 2px;
+	line-height: 12px;
+}
+
+/* Deprecated Please use "btn btn-small" */
+a.button.slim img,
+input.button.slim img,
+button.button.slim img {
+	height: 14px;
+	margin-top: -1px !important;
+	vertical-align: middle;
+}
+
+/* Deprecated Please use "btn" */
+a.button:hover,
+a.button:focus,
+input.button:hover,
+input.button:focus,
+button.button:hover,
+input.button:focus {
+	border: 1px solid #bbb;
+	background: #eee;
+	color: #c00;
+}
+
+/* Deprecated Please use "btn" */
+a.button.disabled,
+a.button.disabled:hover,
+a.button.disabled:focus,
+a.button.disabled:active,
+input.button.disabled,
+input.button.disabled:hover,
+input.button.disabled:focus,
+input.button.disabled:active,
+button.button.disabled,
+button.button.disabled:hover,
+button.button.disabled:focus,
+button.button.disabled:active {
+	top: 0;
+	left: 0;
+	color: #000;
+	background: #ddd url('[{$dir_images}]gradient.png') repeat-x;
+	opacity: .5;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+}
+
+/* Deprecated Please use "btn" */
+a.button:active,
+input.button:active,
+button.button:active {
+	top: 1px;
+	left: 1px;
+	position: relative;
+}
+
+/* Deprecated Please use "btn" */
+button.button img,
+button.button span {
+	margin-top: -1px !important;
+	vertical-align: middle;
+}
+
+/* Deprecated Please use "btn" */
+a.button img,
+a.button span {
+	vertical-align: top;
+	margin-top: -1px !important;
+}
+
+.input[readonly],
+.inputText[readonly] {
+	background-color: #ccc;
+}
+
+.inputDialogListSelect {
+	min-width: 160px;
+}
+
+.inputDialogListSelectDisabled {
+	background-color: #ccc;
+	min-width: 160px;
+}
+
+.input,
+.inputTextarea,
+.inputDialogListTable,
+.input-file,
+.inputFile,
+.inputText,
+.inputTextFilter,
+.inputTextLogin,
+.inputTextCalendar,
+.inputDialog,
+.inputDialogRecStatus {
+	border: 1px solid #aaa;
+	-moz-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+	-webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+	box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+	padding: 2px 5px;
+	box-sizing: border-box;
+	height: 24px;
+	vertical-align: middle;
+}
+
+/* Standard width of a content form-element */
+.input,
+.contentTable .chosen-container-single {
+	width: 560px;
+}
+
+/* Refs ID-713 - But this should be refactored in further versions */
+.contentTable .property-selector .inputDialog,
+.contentTable .property-selector .chosen-container-single {
+	width: 100%;
+}
+
+textarea.input,
+.inputTextarea {
+	height: auto;
+}
+
+.input.input-block {
+	width: 100%;
+	display: block;
+}
+
+/* Standard width / 2 of a content form-element */
+.input.input-small {
+	width: 280px;
+}
+
+/* Standard width / 4 of a content form-element */
+.input.input-mini {
+	width: 140px;
+}
+
+/* Special treatment for textareas */
+.inputTextarea,
+textarea.input {
+	height: auto;
+}
+
+textarea.noresize {
+	resize: none;
+}
+
+.input.input-error,
+.inputTextareaError,
+.inputDialogListTableError,
+.inputTextError,
+.inputTextLoginError {
+	color: #f00;
+	border: 1px #f00 solid;
+}
+
+optgroup[disabled],
+option[disabled] {
+	color: #777;
+}
+
+optgroup option {
+	padding-left: 10px;
+}
+
+.input.disabled,
+.input[disabled],
+.input[disabled="disabled"],
+.inputTextarea.disabled,
+.inputTextarea[disabled],
+.inputTextarea[disabled="disabled"],
+.inputDialogListTable.disabled,
+.inputDialogListTable[disabled],
+.inputDialogListTable[disabled="disabled"],
+.inputText.disabled,
+.inputText[disabled],
+.inputText[disabled="disabled"] {
+	background: #f0f0f0;
+	opacity: .5;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+}
+
+.inputTextFilter {
+	width: 175px;
+}
+
+input[type=checkbox],
+input[type=radio],
+.inputCheckbox,
+.inputRadio,
+.inputCheckboxError {
+	width: 13px;
+	height: 13px;
+}
+
+.inputCheckboxError {
+	color: #f00;
+	border: 1px #f00 solid;
+}
+
+.inputLinkList {
+	list-style: circle outside;
+	margin: 0;
+	text-indent: 0;
+	padding: 0 0 0 11px;
+}
+
+/* @deprecated */
+input.verysmall,
+button.verysmall,
+select.verysmall,
+textarea.verysmall {
+	width: 50px !important;
+}
+
+/* @deprecated */
+input.small,
+button.small,
+select.small,
+textarea.small,
+input.counterSmall {
+	width: 100px !important;
+}
+
+/* @deprecated */
+input.normal-small,
+button.normal-small,
+select.normal-small,
+textarea.normal-small {
+	width: 160px !important;
+}
+
+/* @deprecated */
+input.normal,
+button.normal,
+select.normal,
+textarea.normal {
+	width: 250px !important;
+}
+
+/* @deprecated */
+input.large,
+button.large,
+select.large,
+textarea.large {
+	width: 490px !important;
+}

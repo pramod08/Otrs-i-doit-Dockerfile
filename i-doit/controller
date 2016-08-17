@@ -1,0 +1,16 @@
+#!/bin/sh
+
+## This file is a component of the i-doit framework
+## Website: http://www.i-doit.org/
+## Licence: http://www.i-doit.com/license
+## Copyright: synetics GmbH
+
+IDOIT_PATH=$(dirname $0)
+
+PHP=$(which php)
+
+test ! -x $PHP && echo "PHP executable not found." && exit 1
+
+cd $IDOIT_PATH
+
+$PHP controller.php $@

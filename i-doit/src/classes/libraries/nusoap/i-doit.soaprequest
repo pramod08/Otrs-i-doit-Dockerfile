@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope">
+	<env:Header>
+
+	</env:Header>
+	<env:Body>
+		<session:login xmlns="http://www.i-doit.org/soap/session">
+
+		</session:login>
+	</env:Body>
+</env:Envelope>

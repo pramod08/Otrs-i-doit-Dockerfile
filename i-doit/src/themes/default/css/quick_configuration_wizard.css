@@ -1,0 +1,275 @@
+#qcw {
+	width: 990px;
+}
+
+#object-type-hider,
+#category-hider {
+	position: absolute;
+	background: #fff;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 20;
+}
+
+#qcw table#main,
+#qcw table#configuration {
+	width: 100%;
+	max-width: 990px;
+}
+
+#qcw table#configuration {
+	margin-top: 25px;
+}
+
+#qcw table#main td,
+#qcw table#configuration td {
+	vertical-align: top;
+	width: 310px;
+	position: relative;
+}
+
+#qcw table#configuration td.spacer {
+	width: 20px;
+}
+
+#qcw table#main td.rsaquo {
+	width: 60px;
+	padding-top: 200px;
+	text-align: center;
+}
+
+#qcw table#main div.box {
+	width: 290px;
+	min-height: 590px;
+}
+
+#qcw table#configuration div.box {
+	width: 480px;
+}
+
+#qcw button.button {
+	font-size: 0;
+	vertical-align: top;
+	float: left;
+	display: block;
+	padding: 2px;
+	margin: 0 0 0 -1px;
+	height: 24px;
+}
+
+#qcw button.button span {
+	font-size: 13px;
+	margin: 0 3px;
+}
+
+#qcw button.button span,
+#qcw button.button img {
+	vertical-align: middle;
+}
+
+#qcw div.box h3 {
+	border-bottom: #b7b7b7 1px solid;
+}
+
+#qcw ul.qcw_category_list,
+#qcw #obj_type_list,
+#qcw #category_list,
+#qcw #objtype_new_edit,
+#qcw #objtypegroup_new_edit{
+	border-bottom: #b7b7b7 1px solid;
+	padding-bottom: 10px;
+}
+
+#qcw #objtype_new_edit {
+	padding-bottom: 5px;
+}
+
+#qcw div.box h3 img {
+	float: right;
+}
+
+#qcw div.box ul {
+	list-style: none;
+	margin: 0 5px;
+}
+
+#qcw div.box ul.qcw_category_list,
+#qcw div.box ul#obj_type_group_list,
+#qcw div.box ul#obj_type_list,
+#qcw div.box ul#category_list {
+	max-height: 400px;
+	overflow-y: auto;
+	margin-bottom: 5px;
+	position: relative;
+}
+
+#qcw div.box ul.qcw_category_list li.disabled,
+#qcw div.box ul#obj_type_list li.disabled,
+#qcw div.box ul#category_list li.disabled {
+	color: #888;
+}
+
+#qcw div.box ul#obj_type_list li span.used_in {
+	display: none;
+}
+
+#qcw div.box ul#obj_type_list li span.obj-type {
+	width:190px;
+}
+
+#qcw div.box ul#obj_type_list li span.used_in:hover {
+	text-decoration: line-through;
+}
+
+#qcw div.box ul#obj_type_list li.disabled span.used_in {
+	display: inline;
+}
+
+#qcw div.box ul li {
+	background: #eee;
+	border-top: #b7b7b7 1px solid;
+}
+
+#qcw div.box ul li span.title {
+	max-width: 150px;
+	overflow: hidden;
+}
+
+#qcw div.box ul.qcw_category_list li span.title,
+#qcw div.box ul#category_list li span.title {
+	max-width: 200px;
+}
+
+#qcw div.box ul#obj_type_list li,
+#qcw div.box ul#obj_type_group_list li {
+	cursor: pointer;
+}
+
+#qcw div.box ul li:hover {
+	background: #e0e0e0;
+}
+
+#qcw div.box ul li.selfdefined span.title {
+	font-style:italic;
+}
+
+#qcw div.box ul li.active {
+	background: #d0d0d0;
+	font-weight: bold;
+}
+
+#qcw div.box ul li.heading {
+	background:url('[{$dir_images}]gradient.png') repeat-x scroll 0 0 #ddd;
+}
+
+#qcw div.box ul li.locked {
+	color: #888;
+	padding-left: 20px;
+}
+
+#qcw div.box ul li span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#qcw div.box ul li input {
+	float: right;
+	vertical-align: middle;
+	margin: 2px 5px 0 5px;
+}
+
+#C__MODULE__QCW__CONFIG_TITLE {
+	width: 360px;
+}
+
+#C__MODULE__QCW__OBJTYPE_NEW,
+#C__MODULE__QCW__OBJTYPEGROUP_NEW {
+	width: 240px;
+}
+
+#C__MODULE__QCW__OBJTYPE_NAME,
+#C__MODULE__QCW__OBJTYPEGROUP_NAME {
+	width: 210px;
+}
+
+#qcw span.icon {
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+
+#qcw span.edit {
+	background: transparent url('[{$dir_images}]icons/silk/pencil.png');
+	float: right;
+	cursor: pointer;
+}
+
+#qcw span.eye {
+	background: transparent url('[{$dir_images}]icons/eye.png');
+	float: right;
+    margin-right:10px;
+}
+
+#qcw span.attach
+{
+	background: transparent url('[{$dir_images}]icons/silk/attach.png');
+}
+
+#qcw span.icon {
+	float: right;
+	margin-right: 20px;
+}
+
+#qcw span.icon.edit {
+	float: right;
+	margin-right: 2px;
+}
+
+#qcw div.box ul li span.handle {
+	background: transparent url('[{$dir_images}]icons/hatch.gif');
+	width: 8px;
+	height: 15px;
+	cursor: move;
+	margin-right: 4px;
+}
+
+#qcw div.box table#obj_type_table {
+	margin:0 5px;
+	padding: 5px 0;
+	border-top: 1px solid #B7B7B7;
+}
+
+#qcw div.box table#obj_type_table tr {
+	height: 20px;
+}
+
+#qcw .mainTable td.small {
+	width: 60px !important;
+	text-align:center;
+}
+
+#qcw .mainTable td.large {
+	width: 400px !important;
+}
+
+
+/* IE7 fixes */
+*+html #qcw div.box ul li {
+	height: 18px;
+}
+
+*+html #qcw div.box ul li span {
+	display: block;
+	float: left;
+}
+
+*+html #qcw div.box ul li span.icon {
+	display: block;
+	float: right;
+}
+
+*+html #qcw button.button {
+	overflow: visible;
+}

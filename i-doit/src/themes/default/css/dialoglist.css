@@ -1,0 +1,110 @@
+#scroller {
+    overflow:visible !important;
+}
+.select_multiple_submit {
+    background: url("[{$dir_images}]gradient.png") repeat-x scroll 0 0 #DDDDDD;
+    padding:10px;
+    height:22px;
+    text-align:right;
+}
+
+.select_multiple_label {
+    margin-left:5px;
+    font-family:"Lucida Grande",Verdana;
+    font-size:11px;
+}
+
+.select_multiple_container {
+    width: 552px;
+    position:absolute;
+    top:0;
+    left: 20px;
+    z-index:5000;
+    border:1px solid #aaa;
+    /*border-top:none;  */
+}
+
+.select_multiple_maincontainer {
+    margin-left: 20px;
+    position: relative;
+}
+
+.select_multiple_container .select_multiple_header {
+    background-position:top center;
+    color:#eee;
+    font-family:"Lucida Grande",Verdana;
+    font-weight:bold;
+    font-size:12px;
+    margin:0;
+    padding: 5px;
+    text-align:center;
+}
+.select_multiple_header {
+    background: url("[{$dir_images}]gradient.png") repeat-x scroll 0 0 #DDDDDD;
+}
+table.select_multiple_table td {
+    height:27px;
+    border-bottom:1px solid #aaa;
+    font-family:"Lucida Grande",Verdana;
+    color:#333;
+    font-size:11px;
+}
+
+table.select_multiple_table tr.even {
+    background: none repeat scroll 0 0 white;
+}
+
+table.select_multiple_table tr.odd {
+    background: none repeat scroll 0 0 #EEEEEE;
+}
+
+table.select_multiple_table tr.selected {
+    background-image:none;
+    background: #e0e0e0;;
+}
+
+.select_multiple_name {
+    padding-left:15px !important;
+    font-weight:bold;
+}
+
+.select_multiple_checkbox {
+    text-align:right;
+}
+
+.select_multiple_checkbox input {
+    margin-right:15px;
+}
+
+.select_multipler_search {
+    width: 98%;
+    background-color: #EEEEEE;
+    color: #222244;
+    border: 1px solid #aaa;
+    background: #FBFBFB;
+    -moz-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    box-shadow: inset 1px 1px 2px rgba(200, 200, 200, 0.3);
+    padding: 2px 5px 2px 5px;
+    -webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    -webkit-user-select: text;
+    cursor: auto;
+    font: -webkit-small-control;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+}
+
+input.select_multiple_alibi {
+    width: 517px !important;
+    padding-right: 30px !important;
+    background-image: url("[{$dir_images}]multiselect.gif");
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+}

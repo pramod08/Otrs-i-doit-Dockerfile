@@ -1,0 +1,117 @@
+i-doit
+----------------------------------------------------------------------------
+
+In order to update your existing i-doit installation, read UPDATE from the
+update package.
+
+See https://kb.i-doit.com for further information.
+
+----------------------------------------------------------------------------
+
+Contents
+    * 1 Requirements
+    * 1.1 Quick Install
+    * 1.2 AMP Installation
+    * 2 Basic Apache Configuration
+    * 3 Directory permissions
+    * 4 Automatic Installation
+    * 5 Startup
+
+
+Requirements
+----------------------------------------------------------------------------
+
+    * Apache 2.2 or 2.4 (http://httpd.apache.org/)
+    * PHP 5.4.x, 5.5.x, 5.6.x
+    * MySQL 5.5 or 5.6 or MariaDB 5.5
+
+    Supported operating systems:
+
+	  * Debian GNU/Linux >7.0
+	  * Ubuntu 12.04 LTS, 13.10, 14.04
+	  * SUSE Linux Enterprise Server (SLES) 11
+	  * Red Hat Enterprise Linux (RHEL) 7.0 (with PHP 5.4, 5.5, or 5.6)
+	  * Microsoft Windows 7/8/Server 2003/2008/2012
+
+    Hardware
+      * Current multi-core-processor
+      * 4 GB RAM
+      * mininmum of 500 MB free diskspace
+
+Quick Install
+----------------------------------------------------------------------------
+
+Copy the i-doit files into your Webserver Root.
+Then navigate to http://yourip/i-doit-dir/. The automatic web installation
+should start.
+
+Follow the instructions in the installer.
+
+If you missed a module installation in the webinstaller, you need to download
+the update package and navigate to the updater:
+http://yourip/i-doit-dir/updates to install/reinstall it afterwards.
+
+The standard admin login after installation is:
+	Username: admin
+	Password: admin
+
+Basic Apache/PHP/MySQL Installation Under Debian/Ubuntu:
+----------------------------------------------------------------------------
+
+apt-get update
+apt-get install apache2 apache2-mod-php5 php5-gd php5-curl php5-ldap php5-mysql php5-xcache php5-snmp php5-pgsql php5-gd php5-cli mysql-server
+
+To install this environment under SUSE/SLES, you should select the corresponding packages under yast.
+
+Directory permissions
+----------------------------------------------------------------------------
+1. Set required directory permissions
+
+On unix systems you have to set write permissions for the apache user using our script:
+
+./idoit-rights.sh
+
+Basic Apache Configuration
+----------------------------------------------------------------------------
+Ensure that you know how to assign the PHP5 Interpreter / module to Apache, if
+this was not already done by the php installer.
+
+Here is a working Directory example configuration for Apache (apache2.conf):
+
+<Directory /var/www/idoit/>
+  Options None
+  AllowOverride All
+  Order allow,deny
+  allow from all
+</Directory>
+
+If the DocumentRoot is /var/www, your i-doit WWW-Dir is now /idoit/.
+Your i-doit is now ready to use. You can find the standard login accounts
+under "Startup" at the bottom of this document.
+
+Automatic Installation
+----------------------------------------------------------------------------
+Just open your web browser and navigate to your i-doit installation.
+(e.g. http://your-ip/idoit/). You should arrive at our automatic
+Webinstaller. For shell enthusiasts, there is also a bash installer
+available. Just call: setup/install.sh
+
+Startup
+----------------------------------------------------------------------------
+We hope everything has been well done so far. You can do your first test by
+browsing on http://your-host/i-doit-dir/. Login with one of the following
+accounts:
+
+------------------------------------------------
+Username | Pass    | Permissions
+------------------------------------------------
+admin    | admin   | All rights!
+reader   | reader  | Read-only
+editor   | editor  | Read and write
+author   | author  | New, read and write
+archivar | archivar| Read and delete
+------------------------------------------------
+
+You can change the passwords and users in the contact management.
+
+For updates and documentation see http://www.i-doit.org or http://login.i-doit.com.

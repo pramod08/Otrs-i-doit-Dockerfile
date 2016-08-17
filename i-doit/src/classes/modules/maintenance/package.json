@@ -1,0 +1,60 @@
+{
+	"title": "Maintenance",
+	"name": "LC__MODULE__MAINTENANCE",
+	"identifier": "maintenance",
+	"author": "Synetics GmbH",
+	"version": "1.0.2",
+	"description": "Maintenance module for CMDB",
+	"type": "addon",
+	"icon": "images/icons/silk/computer_error.png",
+	"files": [
+		"auth/isys_maintenance_auth.class.php",
+		"auth",
+		"dao/isys_maintenance_dao.class.php",
+		"dao",
+		"handler/ajax/isys_ajax_handler_maintenance.class.php",
+		"handler/ajax",
+		"handler",
+		"install/isys_module_maintenance_install.class.php",
+		"install/update_data.xml",
+		"install",
+		"lang/de.inc.php",
+		"lang/en.inc.php",
+		"lang",
+		"popup/isys_popup_maintenance_finish.class.php",
+		"popup",
+		"reportview/isys_maintenance_reportview_fpdi.class.php",
+		"reportview/isys_maintenance_reportview_maintenance_export.class.php",
+		"reportview/view_maintenance_export.tpl",
+		"reportview",
+		"templates/contenttop/main_objectdetail.tpl",
+		"templates/contenttop",
+		"templates/popup/finish_maintenance.tpl",
+		"templates/popup",
+		"templates/mailtemplate.tpl",
+		"templates/mailtemplate_list.tpl",
+		"templates/overview.tpl",
+		"templates/planning.tpl",
+		"templates/planning_list.tpl",
+		"templates",
+		"init.php",
+		"isys_module_maintenance.class.php",
+		"isys_module_maintenance_autoload.class.php"
+	],
+	"sql-tables": [
+		"isys_maintenance",
+		"isys_maintenance_2_contact",
+		"isys_maintenance_2_object",
+		"isys_maintenance_type",
+		"isys_maintenance_mailtemplate"
+	],
+	"requirements": {
+		"core": ">= 1.5"
+	},
+	"dependencies": {
+		"php": [
+			"json",
+			"mysqli"
+		]
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"title": "Check_MK",
+	"name": "LC__MODULE__CHECK_MK",
+	"identifier": "check_mk",
+	"author": "Synetics GmbH",
+	"version": "1.0",
+	"description": "Check_MK module for i-doit.",
+	"type": "extension",
+	"icon": "images/icons/check_mk.png",
+	"files": [],
+	"sql-tables": [],
+	"requirements": {
+		"core": ">= 1.4"
+	},
+	"dependencies": {
+		"php": ["zlib", "phar"]
+	}
+}

@@ -1,0 +1,97 @@
+.sortable {
+ border:1px solid #aaa;
+ background:#ddd;
+ padding:0;
+}
+
+.sortable ul {
+ list-style:none;
+ padding:0;
+ margin:5px;
+}
+
+.sortable ul li {
+ border:1px solid #ccc;
+ border-bottom-width:2px;
+ margin:4px 0;
+ cursor:default;
+ line-height: 1.6em;
+ vertical-align:middle;
+ font-style: normal;
+}
+
+.sortable ul li:active {
+ background:#fff;
+ border:1px solid #999;
+}
+
+.sortable ul li:hover {
+ border:1px solid #aaa;
+ border-bottom-width:2px;
+}
+
+#sortables div h2 {
+ border:1px solid #aaa;
+ border-bottom:0;
+ margin:0;
+ padding:5px;
+ background:#ccc;
+}
+
+#sortables .container {
+ width:300px;
+}
+
+.sortable tr {
+ border:1px solid #ccc;
+ border-bottom-width:2px;
+ background:#eee;
+ padding:5px;
+ margin:5px 0;
+ cursor:default;
+ font-style: normal;
+}
+.sortable tr td {
+ cursor:default;
+}
+
+.sortable ul li .separator {
+ border-right:1px solid #aaa;
+ margin-right:5px;
+ padding:2px 8px 2px;
+ font-weight:bold;
+ background:#ccc;
+}
+
+html>body .sortable .draggable {
+ background-color:#ccc;
+}
+
+.sortable .unused {
+ background:#eee;
+}
+
+a.close {
+ display:block;
+ padding: 2px 4px 2px 4px;
+ background:#efefef;
+ border-left:1px solid #999;
+}
+
+a.close:hover {
+ border-left-color:#555;
+ background:#fff;
+}
+
+#sortables li div span {
+ vertical-align:middle;
+}
+
+#sortables ul li img {
+ border:1px solid #fff;
+ width:15px;
+ height:15px;
+ vertical-align:middle;
+ margin-top:1px;
+ margin-right:5px;
+}

@@ -1,0 +1,11 @@
+# i-doit Crontab template
+# -----------------------
+# Don't forget to "chmod +x /var/www/i-doit/controller"
+# And check your paths and correct them, if needed
+
+0 2 * * * /var/www/i-doit/controller -v -m workflow >> /var/log/idoit
+0,10,20,30,40,50 * * * * /var/www/i-doit/controller -v -m nagios  >> /var/log/idoit
+5,15,25,35,45,55 * * * * /var/www/i-doit/controller -v -m syslog  >> /var/log/idoit
+2 1 * * * /var/www/i-doit/controller -v -m archivelog >> /var/log/idoit
+2 0 * * * /var/www/i-doit/controller -v -m updatecheck >> /var/log/idoit
+3 0 * * * /var/www/i-doit/controller -v -m notifications >> /var/log/idoit
